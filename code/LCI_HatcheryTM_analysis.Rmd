@@ -292,7 +292,7 @@ sample.n_i <- otolith.TM.data %>%
 
 # Create table of total # of fish commercially harvested in stratum (i):
 harvest.N_i <- sampled.harvest.CLEAN %>%
-  group_by(Year,Gear,Species,Source,StatArea) %>% 
+  group_by(Year,StatWk,Gear,Species,Source,StatArea) %>% 
   summarise(N_i = sum(unique(CommercialHarvest)))
 
 # Create a table of the otolith-derived estimated of the contribution of hatchery-area (h) to period-gear-district stratum (i):

@@ -80,6 +80,7 @@ otolith.TM.data <- pink.clean %>%
 harvest.df <- harvest %>% 
   select(-c(ID,DOL.Month,District,Subdistrict,Stat.Area.Name,Landed.Weight..sum.,Business.Name)) %>% 
   filter(Species.Name %in% c("salmon, sockeye","salmon, pink"),Gear.Name %in% c("Purse seine","Set gillnet"),Harvest.Name %in% c("State managed fishery","Private Hatchery - Fishing")) %>% 
+  filter(str_detect(Stat.Area,"^241")) %>% 
   mutate(Gear.Name = if_else(Gear.Name == "Purse seine", "PS", Gear.Name),
          Gear.Name = if_else(Gear.Name == "Set gillnet", "SGN", Gear.Name),
          Species.Name = if_else(Species.Name == "salmon, sockeye", "Sockeye", Species.Name),
@@ -246,7 +247,7 @@ sample.n_i <- otolith.TM.data %>%
 
 # Create table of total # of fish commercially harvested in stratum (i):
 harvest.N_i <- sampled.harvest.CLEAN %>%
-  group_by(Year,Gear,Species,Source,StatArea) %>% 
+  group_by(Year,StatWk,Gear,Species,Source,StatArea) %>% 
   summarise(N_i = sum(unique(CommercialHarvest)))
 
 # Create a table of the otolith-derived estimated of the contribution of hatchery-area (h) to period-gear-district stratum (i):
