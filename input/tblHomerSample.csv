@@ -1,0 +1,553 @@
+ID,Year,Agency,Species,HomerID,SampleDate,SampleType,StatWk,HarvLoc,HarvType,District,SubDist,Gear
+1,2022,ADFG,Sockeye,22PSD026S,7/11/2022,Grab,29,Neptune Bay Section,CCP,Southern,24191,PS
+2,2022,ADFG,Sockeye,22PSD027S,7/11/2022,Grab,29,China Poot SHA,CCP,Southern,24192,PS
+3,2022,ADFG,Sockeye,22GMX028S,7/13/2022,Systematic,29,Seldovia/Barabara/Tutka,CCP,Southern,24106,SGN
+4,2022,ADFG,Sockeye,22GMX028S,7/13/2022,Systematic,29,Seldovia/Barabara/Tutka,CCP,Southern,24117,SGN
+5,2022,ADFG,Sockeye,22GMX028S,7/13/2022,Systematic,29,Seldovia/Barabara/Tutka,CCP,Southern,24118,SGN
+6,2022,ADFG,Pink,22GMX029P,7/13/2022,Grab,29,Seldovia/Barabara/Tutka,CCP,Southern,24106,SGN
+7,2022,ADFG,Pink,22GMX029P,7/13/2022,Grab,29,Seldovia/Barabara/Tutka,CCP,Southern,24117,SGN
+8,2022,ADFG,Pink,22GMX029P,7/13/2022,Grab,29,Seldovia/Barabara/Tutka,CCP,Southern,24118,SGN
+9,2022,ADFG,Sockeye,22PSD030S,7/15/2022,Grab,29,Hazel Lake SHA,CCP,Southern,24193,PS
+10,2022,ADFG,Sockeye,22PSD031S,7/15/2022,Grab,29,Neptune Bay,CCP,Southern,24191,PS
+11,2022,ADFG,Sockeye,22GHC032S,7/18/2022,Grab,30,Halibut Cove,CCP,Southern,24115,SGN
+12,2022,ADFG,Sockeye,22PSD033S,7/20/2022,Grab,30,China Poot SHA,CCP,Southern,24192,PS
+13,2022,ADFG,Sockeye,22PSD034S,7/20/2022,Grab,30,Halibut Cove,CCP,Southern,24115,PS
+14,2022,ADFG,Pink,22GMX035P,7/20/2022,Grab,30,Seldovia/Barabara/Tutka,CCP,Southern,24106,SGN
+15,2022,ADFG,Pink,22GMX035P,7/20/2022,Grab,30,Seldovia/Barabara/Tutka,CCP,Southern,24117,SGN
+16,2022,ADFG,Pink,22GMX035P,7/20/2022,Grab,30,Seldovia/Barabara/Tutka,CCP,Southern,24118,SGN
+17,2022,ADFG,Sockeye,22GMX036S,7/20/2022,Systematic,30,Seldovia/Barabara/Tutka,CCP,Southern,24106,SGN
+18,2022,ADFG,Sockeye,22GMX036S,7/20/2022,Systematic,30,Seldovia/Barabara/Tutka,CCP,Southern,24117,SGN
+19,2022,ADFG,Sockeye,22GMX036S,7/20/2022,Systematic,30,Seldovia/Barabara/Tutka,CCP,Southern,24118,SGN
+20,2022,ADFG,Pink,22PSD037P,7/21/2022,Grab,30,Tutka Bay SHA,HCR,Southern,24107,PS
+21,2022,ADFG,Sockeye,22PSD038S,7/21/2022,Grab,30,Tutka Bay SHA,HCR,Southern,24107,PS
+22,2022,ADFG,Sockeye,22PSD039S,7/22/2022,Grab,30,Tutka Bay,CCP,Southern,24106,PS
+23,2022,ADFG,Pink,22PSD040P,7/22/2022,Grab,30,Tutka Bay,CCP,Southern,24106,PS
+24,2022,ADFG,Pink,22GMX041P,7/23/2022,Grab,30,Seldovia/Barabara/Tutka,CCP,Southern,24106,SGN
+25,2022,ADFG,Pink,22GMX041P,7/23/2022,Grab,30,Seldovia/Barabara/Tutka,CCP,Southern,24117,SGN
+26,2022,ADFG,Sockeye,22GMX001S,6/4/2022,Systematic,23,Seldovia/Barabara/Tutka,CCP,Southern,24106,SGN
+27,2022,ADFG,Sockeye,22GMX001S,6/4/2022,Systematic,23,Seldovia/Barabara/Tutka,CCP,Southern,24117,SGN
+28,2022,ADFG,Sockeye,22GMX001S,6/4/2022,Systematic,23,Seldovia/Barabara/Tutka,CCP,Southern,24118,SGN
+29,2022,ADFG,Sockeye,22GMX002S,6/8/2022,Systematic,24,Seldovia/Barabara/Tutka,CCP,Southern,24106,SGN
+30,2022,ADFG,Sockeye,22GMX002S,6/8/2022,Systematic,24,Seldovia/Barabara/Tutka,CCP,Southern,24117,SGN
+31,2022,ADFG,Sockeye,22GMX002S,6/8/2022,Systematic,24,Seldovia/Barabara/Tutka,CCP,Southern,24118,SGN
+32,2022,ADFG,Sockeye,22GMX003S,6/11/2022,Systematic,24,Seldovia/Barabara/Tutka,CCP,Southern,24106,SGN
+33,2022,ADFG,Sockeye,22GMX003S,6/11/2022,Systematic,24,Seldovia/Barabara/Tutka,CCP,Southern,24117,SGN
+34,2022,ADFG,Sockeye,22GMX003S,6/11/2022,Systematic,24,Seldovia/Barabara/Tutka,CCP,Southern,24118,SGN
+35,2022,ADFG,Sockeye,22GMX004S,6/15/2022,Systematic,25,Seldovia/Barabara/Tutka,CCP,Southern,24106,SGN
+36,2022,ADFG,Sockeye,22GMX004S,6/15/2022,Systematic,25,Seldovia/Barabara/Tutka,CCP,Southern,24117,SGN
+37,2022,ADFG,Sockeye,22GMX004S,6/15/2022,Systematic,25,Seldovia/Barabara/Tutka,CCP,Southern,24118,SGN
+38,2022,ADFG,Sockeye,22GMX005S,6/18/2022,Systematic,25,Seldovia/Barabara/Tutka,CCP,Southern,24106,SGN
+39,2022,ADFG,Sockeye,22GMX005S,6/18/2022,Systematic,25,Seldovia/Barabara/Tutka,CCP,Southern,24117,SGN
+40,2022,ADFG,Sockeye,22GMX005S,6/18/2022,Systematic,25,Seldovia/Barabara/Tutka,CCP,Southern,24118,SGN
+41,2022,ADFG,Sockeye,22GMX006S,6/22/2022,Systematic,26,Seldovia/Barabara/Tutka,CCP,Southern,24106,SGN
+42,2022,ADFG,Sockeye,22GMX006S,6/22/2022,Systematic,26,Seldovia/Barabara/Tutka,CCP,Southern,24117,SGN
+43,2022,ADFG,Sockeye,22GMX006S,6/22/2022,Systematic,26,Seldovia/Barabara/Tutka,CCP,Southern,24118,SGN
+44,2022,ADFG,Sockeye,22PSD007S,6/22/2022,Grab,26,China Poot SHA,CCP,Southern,24192,PS
+45,2022,ADFG,Sockeye,22PSD008S,6/22/2022,Grab,26,Neptune Bay,CCP,Southern,24191,PS
+46,2022,ADFG,Sockeye,22PSD009S,6/24/2022,Grab,26,China Poot Section,CCP,Southern,24190,PS
+47,2022,ADFG,Sockeye,22PSD010S,6/24/2022,Grab,26,Neptune Bay,CCP,Southern,24191,PS
+48,2022,ADFG,Sockeye,22GMX011S,6/25/2022,Systematic,26,Seldovia/Barabara/Tutka,CCP,Southern,24106,SGN
+49,2022,ADFG,Sockeye,22GMX011S,6/25/2022,Systematic,26,Seldovia/Barabara/Tutka,CCP,Southern,24117,SGN
+50,2022,ADFG,Sockeye,22GMX011S,6/25/2022,Systematic,26,Seldovia/Barabara/Tutka,CCP,Southern,24118,SGN
+51,2022,ADFG,Sockeye,22PSD012S,6/27/2022,Grab,27,China Poot SHA,CCP,Southern,24192,PS
+52,2022,ADFG,Sockeye,22PSD013S,6/27/2022,Grab,27,China Poot Section,CCP,Southern,24190,PS
+53,2022,ADFG,Sockeye,22GMX014S,6/29/2022,Systematic,27,Seldovia/Barabara/Tutka,CCP,Southern,24106,SGN
+54,2022,ADFG,Sockeye,22GMX014S,6/29/2022,Systematic,27,Seldovia/Barabara/Tutka,CCP,Southern,24117,SGN
+55,2022,ADFG,Sockeye,22GMX014S,6/29/2022,Systematic,27,Seldovia/Barabara/Tutka,CCP,Southern,24118,SGN
+56,2022,ADFG,Sockeye,22PSD015S,6/29/2022,Grab,27,Neptune Bay,CCP,Southern,24191,PS
+57,2022,ADFG,Sockeye,22PSD016S,6/29/2022,Grab,27,China Poot SHA,CCP,Southern,24192,PS
+58,2022,ADFG,Sockeye,22PSD017S,7/1/2022,Grab,27,Tutka Bay SHA,HCR,Southern,24107,PS
+59,2022,ADFG,Sockeye,22PSD018S,7/1/2022,Grab,27,China Poot SHA,CCP,Southern,24192,PS
+60,2022,ADFG,Sockeye,22PSD019S,7/1/2022,Grab,27,Neptune Bay Section,CCP,Southern,24191,PS
+61,2022,ADFG,Sockeye,22GMX020S,7/2/2022,Systematic,27,Seldovia/Barabara/Tutka,CCP,Southern,24106,SGN
+62,2022,ADFG,Sockeye,22GMX020S,7/2/2022,Systematic,27,Seldovia/Barabara/Tutka,CCP,Southern,24117,SGN
+63,2022,ADFG,Sockeye,22GMX020S,7/2/2022,Systematic,27,Seldovia/Barabara/Tutka,CCP,Southern,24118,SGN
+64,2022,ADFG,Sockeye,22GHC021S,7/6/2022,Census,28,Halibut Cove,CCP,Southern,24115,SGN
+65,2022,ADFG,Sockeye,22GMX022S,7/6/2022,Systematic,28,Seldovia/Barabara/Tutka,CCP,Southern,24106,SGN
+66,2022,ADFG,Sockeye,22GMX022S,7/6/2022,Systematic,28,Seldovia/Barabara/Tutka,CCP,Southern,24117,SGN
+67,2022,ADFG,Sockeye,22GMX022S,7/6/2022,Systematic,28,Seldovia/Barabara/Tutka,CCP,Southern,24118,SGN
+68,2022,ADFG,Sockeye,22PSD023S,7/6/2022,Grab,28,China Poot SHA,CCP,Southern,24192,PS
+69,2022,ADFG,Sockeye,22PSD024S,7/6/2022,Grab,28,Neptune Bay Section,CCP,Southern,24191,PS
+70,2022,ADFG,Sockeye,22GMX025S,7/9/2022,Systematic,28,Seldovia/Barabara/Tutka,CCP,Southern,24106,SGN
+71,2022,ADFG,Sockeye,22GMX025S,7/9/2022,Systematic,28,Seldovia/Barabara/Tutka,CCP,Southern,24117,SGN
+72,2022,ADFG,Sockeye,22GMX025S,7/9/2022,Systematic,28,Seldovia/Barabara/Tutka,CCP,Southern,24118,SGN
+73,2022,ADFG,Pink,22GMX041P,7/23/2022,Grab,30,Seldovia/Barabara/Tutka,CCP,Southern,24118,SGN
+74,2022,ADFG,Sockeye,22GMX042S,7/23/2022,Systematic,30,Seldovia/Barabara/Tutka,CCP,Southern,24106,SGN
+75,2022,ADFG,Sockeye,22GMX042S,7/23/2022,Systematic,30,Seldovia/Barabara/Tutka,CCP,Southern,24117,SGN
+76,2022,ADFG,Sockeye,22GMX042S,7/23/2022,Systematic,30,Seldovia/Barabara/Tutka,CCP,Southern,24118,SGN
+77,2022,ADFG,Sockeye,22GHC043S,7/27/2022,Grab,31,Halibut Cove,CCP,Southern,24115,SGN
+78,2022,ADFG,Pink,22GMX044P,7/27/2022,Grab,31,Seldovia/Barabara/Tutka,CCP,Southern,24106,SGN
+79,2022,ADFG,Pink,22GMX044P,7/27/2022,Grab,31,Seldovia/Barabara/Tutka,CCP,Southern,24117,SGN
+80,2022,ADFG,Pink,22GMX044P,7/27/2022,Grab,31,Seldovia/Barabara/Tutka,CCP,Southern,24118,SGN
+81,2022,ADFG,Sockeye,22GMX045S,7/27/2022,Systematic,31,Seldovia/Barabara/Tutka,CCP,Southern,24106,SGN
+82,2022,ADFG,Sockeye,22GMX045S,7/27/2022,Systematic,31,Seldovia/Barabara/Tutka,CCP,Southern,24117,SGN
+83,2022,ADFG,Sockeye,22GMX045S,7/27/2022,Systematic,31,Seldovia/Barabara/Tutka,CCP,Southern,24118,SGN
+84,2022,ADFG,Pink,22PSD046P,7/29/2022,Grab,31,Tutka Bay,CCP,Southern,24106,PS
+85,2022,ADFG,Sockeye,22PSD047S,7/29/2022,Grab,31,Neptune Bay,CCP,Southern,24191,PS
+86,2022,ADFG,Pink,22PSD048P,7/29/2022,Grab,31,Neptune Bay,CCP,Southern,24191,PS
+87,2022,ADFG,Pink,22GMX049P,7/30/2022,Grab,31,Seldovia/Barabara/Tutka,CCP,Southern,24106,SGN
+88,2022,ADFG,Pink,22GMX049P,7/30/2022,Grab,31,Seldovia/Barabara/Tutka,CCP,Southern,24117,SGN
+89,2022,ADFG,Pink,22GMX049P,7/30/2022,Grab,31,Seldovia/Barabara/Tutka,CCP,Southern,24118,SGN
+90,2022,ADFG,Sockeye,22GMX050S,7/30/2022,Systematic,31,Seldovia/Barabara/Tutka,CCP,Southern,24106,SGN
+91,2022,ADFG,Sockeye,22GMX050S,7/30/2022,Systematic,31,Seldovia/Barabara/Tutka,CCP,Southern,24117,SGN
+92,2022,ADFG,Sockeye,22GMX050S,7/30/2022,Systematic,31,Seldovia/Barabara/Tutka,CCP,Southern,24118,SGN
+93,2022,ADFG,Pink,22GBT051P,8/5/2022,Grab,32,Barabara,CCP,Southern,24118,SGN
+94,2022,ADFG,Sockeye,22GBT052S,8/5/2022,Grab,32,Barabara,CCP,Southern,24118,SGN
+95,2021,ADFG,Sockeye,21GMX001S,6/5/2021,Systematic,23,Seldovia/Barabara/Tutka,CCP,Southern,24106,SGN
+96,2021,ADFG,Sockeye,21GMX001S,6/5/2021,Systematic,23,Seldovia/Barabara/Tutka,CCP,Southern,24117,SGN
+97,2021,ADFG,Sockeye,21GMX001S,6/5/2021,Systematic,23,Seldovia/Barabara/Tutka,CCP,Southern,24118,SGN
+98,2021,ADFG,Sockeye,21GMX002S,6/9/2021,Systematic,24,Barabara/Tutka,CCP,Southern,24106,SGN
+99,2021,ADFG,Sockeye,21GMX002S,6/9/2021,Systematic,24,Barabara/Tutka,CCP,Southern,24118,SGN
+100,2021,ADFG,Sockeye,21GMX003S,6/9/2021,Systematic,24,Seldovia/Barabara/Tutka,CCP,Southern,24106,SGN
+101,2021,ADFG,Sockeye,21GMX003S,6/9/2021,Systematic,24,Seldovia/Barabara/Tutka,CCP,Southern,24117,SGN
+102,2021,ADFG,Sockeye,21GMX003S,6/9/2021,Systematic,24,Seldovia/Barabara/Tutka,CCP,Southern,24118,SGN
+103,2021,ADFG,Sockeye,21GMX004S,6/12/2021,Systematic,24,Seldovia/Tutka,CCP,Southern,24106,SGN
+104,2021,ADFG,Sockeye,21GMX004S,6/12/2021,Systematic,24,Seldovia/Tutka,CCP,Southern,24117,SGN
+105,2021,ADFG,Sockeye,21GMX005S,6/16/2021,Systematic,25,Seldovia/Barabara/Tutka,CCP,Southern,24106,SGN
+106,2021,ADFG,Sockeye,21GMX005S,6/16/2021,Systematic,25,Seldovia/Barabara/Tutka,CCP,Southern,24117,SGN
+107,2021,ADFG,Sockeye,21GMX005S,6/16/2021,Systematic,25,Seldovia/Barabara/Tutka,CCP,Southern,24118,SGN
+108,2021,ADFG,Sockeye,21GMX006S,6/16/2021,Systematic,25,Barabara/Tutka,CCP,Southern,24106,SGN
+109,2021,ADFG,Sockeye,21GMX006S,6/16/2021,Systematic,25,Barabara/Tutka,CCP,Southern,24118,SGN
+110,2021,ADFG,Sockeye,21GMX007S,6/19/2021,Systematic,25,Seldovia/Barabara/Tutka,CCP,Southern,24106,SGN
+111,2021,ADFG,Sockeye,21GMX007S,6/19/2021,Systematic,25,Seldovia/Barabara/Tutka,CCP,Southern,24117,SGN
+112,2021,ADFG,Sockeye,21GMX007S,6/19/2021,Systematic,25,Seldovia/Barabara/Tutka,CCP,Southern,24118,SGN
+113,2021,ADFG,Sockeye,21GMX008S,6/21/2021,Systematic,26,Barabara/Tutka,CCP,Southern,24106,SGN
+114,2021,ADFG,Sockeye,21GMX008S,6/21/2021,Systematic,26,Barabara/Tutka,CCP,Southern,24118,SGN
+115,2021,ADFG,Sockeye,21GMX009S,6/23/2021,Systematic,26,Seldovia/Barabara/Tutka,CCP,Southern,24106,SGN
+116,2021,ADFG,Sockeye,21GMX009S,6/23/2021,Systematic,26,Seldovia/Barabara/Tutka,CCP,Southern,24117,SGN
+117,2021,ADFG,Sockeye,21GMX009S,6/23/2021,Systematic,26,Seldovia/Barabara/Tutka,CCP,Southern,24118,SGN
+118,2021,ADFG,Sockeye,21GMX010S,6/23/2021,Systematic,26,Barabara/Tutka,CCP,Southern,24106,SGN
+119,2021,ADFG,Sockeye,21GMX010S,6/23/2021,Systematic,26,Barabara/Tutka,CCP,Southern,24118,SGN
+120,2021,ADFG,Sockeye,21PSD011S,6/25/2021,Grab,26,Eagle Beach -China Poot,CCP,Southern,24190,PS
+121,2021,ADFG,Sockeye,21PSD012S,6/25/2021,Grab,26,Peterson Bay,CCP,Southern,24190,PS
+122,2021,ADFG,Sockeye,21GMX013S,6/26/2021,Systematic,26,Seldovia/Barabara/Tutka,CCP,Southern,24106,SGN
+123,2021,ADFG,Sockeye,21GMX013S,6/26/2021,Systematic,26,Seldovia/Barabara/Tutka,CCP,Southern,24117,SGN
+124,2021,ADFG,Sockeye,21GMX013S,6/26/2021,Systematic,26,Seldovia/Barabara/Tutka,CCP,Southern,24118,SGN
+125,2021,ADFG,Sockeye,21PSD014S,6/28/2021,Grab,27,Peterson Bay,CCP,Southern,24190,PS
+126,2021,ADFG,Sockeye,21GMX015S,6/30/2021,Systematic,27,Barabara,CCP,Southern,24118,SGN
+127,2021,ADFG,Sockeye,21GMX016S,6/30/2021,Systematic,27,Seldovia/Barabara/Tutka,CCP,Southern,24106,SGN
+128,2021,ADFG,Sockeye,21GMX016S,6/30/2021,Systematic,27,Seldovia/Barabara/Tutka,CCP,Southern,24117,SGN
+129,2021,ADFG,Sockeye,21GMX016S,6/30/2021,Systematic,27,Seldovia/Barabara/Tutka,CCP,Southern,24118,SGN
+130,2021,ADFG,Sockeye,21GMX017S,6/30/2021,Systematic,27,Barabara/Tutka,CCP,Southern,24106,SGN
+131,2021,ADFG,Sockeye,21GMX017S,6/30/2021,Systematic,27,Barabara/Tutka,CCP,Southern,24118,SGN
+132,2021,ADFG,Sockeye,21PSD018S,7/2/2021,Grab,27,China Poot SHA,CCP,Southern,24192,PS
+133,2021,ADFG,Sockeye,21PSD019S,7/2/2021,Grab,27,China Poot SHA,CCP,Southern,24192,PS
+134,2021,ADFG,Sockeye,21PSD020S,7/2/2021,Grab,27,Tutka,CCP,Southern,24106,PS
+135,2021,ADFG,Sockeye,21GMX021S,7/3/2021,Systematic,27,Seldovia/Barabara/Tutka,CCP,Southern,24106,SGN
+136,2021,ADFG,Sockeye,21GMX021S,7/3/2021,Systematic,27,Seldovia/Barabara/Tutka,CCP,Southern,24117,SGN
+137,2021,ADFG,Sockeye,21GMX021S,7/3/2021,Systematic,27,Seldovia/Barabara/Tutka,CCP,Southern,24118,SGN
+138,2021,ADFG,Pink,21GMX022P,7/3/2021,Systematic,27,Seldovia/Barabara/Tutka,CCP,Southern,24106,SGN
+139,2021,ADFG,Pink,21GMX022P,7/3/2021,Systematic,27,Seldovia/Barabara/Tutka,CCP,Southern,24117,SGN
+140,2021,ADFG,Pink,21GMX022P,7/3/2021,Systematic,27,Seldovia/Barabara/Tutka,CCP,Southern,24118,SGN
+141,2021,ADFG,Pink,21GMX023P,7/7/2021,Systematic,28,Seldovia/Barabara/Tutka,CCP,Southern,24106,SGN
+142,2021,ADFG,Pink,21GMX023P,7/7/2021,Systematic,28,Seldovia/Barabara/Tutka,CCP,Southern,24117,SGN
+143,2021,ADFG,Pink,21GMX023P,7/7/2021,Systematic,28,Seldovia/Barabara/Tutka,CCP,Southern,24118,SGN
+144,2021,ADFG,Sockeye,21GMX024S,7/7/2021,Systematic,28,Seldovia/Barabara/Tutka,CCP,Southern,24106,SGN
+145,2021,ADFG,Sockeye,21GMX024S,7/7/2021,Systematic,28,Seldovia/Barabara/Tutka,CCP,Southern,24117,SGN
+146,2021,ADFG,Sockeye,21GMX024S,7/7/2021,Systematic,28,Seldovia/Barabara/Tutka,CCP,Southern,24118,SGN
+147,2021,ADFG,Sockeye,21GMX025S,7/7/2021,Systematic,28,Seldovia/Barabara/Tutka,CCP,Southern,24106,SGN
+148,2021,ADFG,Sockeye,21GMX025S,7/7/2021,Systematic,28,Seldovia/Barabara/Tutka,CCP,Southern,24117,SGN
+149,2021,ADFG,Sockeye,21GMX025S,7/7/2021,Systematic,28,Seldovia/Barabara/Tutka,CCP,Southern,24118,SGN
+150,2021,ADFG,Sockeye,21GMX026S,7/7/2021,Systematic,28,Seldovia/Barabara/Tutka,CCP,Southern,24106,SGN
+151,2021,ADFG,Sockeye,21GMX026S,7/7/2021,Systematic,28,Seldovia/Barabara/Tutka,CCP,Southern,24117,SGN
+152,2021,ADFG,Sockeye,21GMX026S,7/7/2021,Systematic,28,Seldovia/Barabara/Tutka,CCP,Southern,24118,SGN
+153,2021,ADFG,Pink,21GMX027P,7/7/2021,Systematic,28,Seldovia/Barabara/Tutka,CCP,Southern,24106,SGN
+154,2021,ADFG,Pink,21GMX027P,7/7/2021,Systematic,28,Seldovia/Barabara/Tutka,CCP,Southern,24117,SGN
+155,2021,ADFG,Pink,21GMX027P,7/7/2021,Systematic,28,Seldovia/Barabara/Tutka,CCP,Southern,24118,SGN
+156,2021,ADFG,Sockeye,21PSD028S,7/9/2021,Grab,28,Neptune Bay,CCP,Southern,24193,PS
+157,2021,ADFG,Sockeye,21PSD029S,7/9/2021,Grab,28,Neptune Bay,CCP,Southern,24193,PS
+158,2021,ADFG,Sockeye,21PSD030S,7/9/2021,Grab,28,China Poot SHA,CCP,Southern,24192,PS
+159,2021,ADFG,Sockeye,21PSD031S,7/9/2021,Grab,28,China Poot (Outer),CCP,Southern,24192,PS
+160,2021,ADFG,Sockeye,21PSD032S,7/9/2021,Grab,28,China Poot (Outer),CCP,Southern,24192,PS
+161,2021,ADFG,Sockeye,21GMX033S,7/10/2021,Systematic,28,Seldovia/Barabara/Tutka,CCP,Southern,24106,SGN
+162,2021,ADFG,Sockeye,21GMX033S,7/10/2021,Systematic,28,Seldovia/Barabara/Tutka,CCP,Southern,24117,SGN
+163,2021,ADFG,Sockeye,21GMX033S,7/10/2021,Systematic,28,Seldovia/Barabara/Tutka,CCP,Southern,24118,SGN
+164,2021,ADFG,Pink,21GMX034P,7/10/2021,Systematic,28,Seldovia/Barabara/Tutka,CCP,Southern,24106,SGN
+165,2021,ADFG,Pink,21GMX034P,7/10/2021,Systematic,28,Seldovia/Barabara/Tutka,CCP,Southern,24117,SGN
+166,2021,ADFG,Pink,21GMX034P,7/10/2021,Systematic,28,Seldovia/Barabara/Tutka,CCP,Southern,24118,SGN
+167,2021,ADFG,Sockeye,21PSD035S,7/12/2021,Grab,29,Neptune Bay,CCP,Southern,24191,PS
+168,2021,ADFG,Sockeye,21PSD036S,7/12/2021,Grab,29,China Poot SHA,CCP,Southern,24192,PS
+169,2021,ADFG,Sockeye,21PSD037S,7/12/2021,Grab,29,Neptune Bay,CCP,Southern,24191,PS
+170,2021,ADFG,Sockeye,21GMX038S,7/14/2021,Systematic,29,Seldovia/Barabara/Tutka,CCP,Southern,24106,SGN
+171,2021,ADFG,Sockeye,21GMX038S,7/14/2021,Systematic,29,Seldovia/Barabara/Tutka,CCP,Southern,24117,SGN
+172,2021,ADFG,Sockeye,21GMX038S,7/14/2021,Systematic,29,Seldovia/Barabara/Tutka,CCP,Southern,24118,SGN
+173,2021,ADFG,Pink,21GMX039P,7/14/2021,Systematic,29,Seldovia/Barabara/Tutka,CCP,Southern,24106,SGN
+174,2021,ADFG,Pink,21GMX039P,7/14/2021,Systematic,29,Seldovia/Barabara/Tutka,CCP,Southern,24117,SGN
+175,2021,ADFG,Pink,21GMX039P,7/14/2021,Systematic,29,Seldovia/Barabara/Tutka,CCP,Southern,24118,SGN
+176,2021,ADFG,Sockeye,21GMX040S,7/14/2021,Systematic,29,Seldovia/Barabara/Tutka,CCP,Southern,24106,SGN
+177,2021,ADFG,Sockeye,21GMX040S,7/14/2021,Systematic,29,Seldovia/Barabara/Tutka,CCP,Southern,24117,SGN
+178,2021,ADFG,Sockeye,21GMX040S,7/14/2021,Systematic,29,Seldovia/Barabara/Tutka,CCP,Southern,24118,SGN
+179,2021,ADFG,Pink,21GMX041P,7/14/2021,Systematic,29,Seldovia/Barabara/Tutka,CCP,Southern,24106,SGN
+180,2021,ADFG,Pink,21GMX041P,7/14/2021,Systematic,29,Seldovia/Barabara/Tutka,CCP,Southern,24117,SGN
+181,2021,ADFG,Pink,21GMX041P,7/14/2021,Systematic,29,Seldovia/Barabara/Tutka,CCP,Southern,24118,SGN
+182,2021,ADFG,Sockeye,21PSD042S,7/16/2021,Grab,29,Hazel Lake SHA,CCP,Southern,24193,PS
+183,2021,ADFG,Sockeye,21PSD043S,7/16/2021,Grab,29,Tutka,CCP,Southern,24106,PS
+184,2021,ADFG,Pink,21PSD044P,7/16/2021,Grab,29,Tutka,CCP,Southern,24106,PS
+185,2021,ADFG,Sockeye,21GMX045S,7/17/2021,Systematic,29,Seldovia/Barabara/Tutka,CCP,Southern,24106,SGN
+186,2021,ADFG,Sockeye,21GMX045S,7/17/2021,Systematic,29,Seldovia/Barabara/Tutka,CCP,Southern,24117,SGN
+187,2021,ADFG,Sockeye,21GMX045S,7/17/2021,Systematic,29,Seldovia/Barabara/Tutka,CCP,Southern,24118,SGN
+188,2021,ADFG,Pink,21GMX046P,7/17/2021,Systematic,29,Seldovia/Barabara/Tutka,CCP,Southern,24106,SGN
+189,2021,ADFG,Pink,21GMX046P,7/17/2021,Systematic,29,Seldovia/Barabara/Tutka,CCP,Southern,24117,SGN
+190,2021,ADFG,Pink,21GMX046P,7/17/2021,Systematic,29,Seldovia/Barabara/Tutka,CCP,Southern,24118,SGN
+191,2021,ADFG,Sockeye,21PSD047S,7/19/2021,Grab,30,China Poot SHA,CCP,Southern,24192,PS
+192,2021,ADFG,Sockeye,21PSD048S,7/19/2021,Grab,30,Quarry Pt. Tutka,CCP,Southern,24106,PS
+193,2021,ADFG,Pink,21PSD049P,7/19/2021,Grab,30,Quarry Pt. Tutka,CCP,Southern,24106,PS
+194,2021,ADFG,Sockeye,21GMX050S,7/22/2021,Systematic,30,Seldovia/Barabara/Tutka,CCP,Southern,24106,SGN
+195,2021,ADFG,Sockeye,21GMX050S,7/22/2021,Systematic,30,Seldovia/Barabara/Tutka,CCP,Southern,24117,SGN
+196,2021,ADFG,Sockeye,21GMX050S,7/22/2021,Systematic,30,Seldovia/Barabara/Tutka,CCP,Southern,24118,SGN
+197,2021,ADFG,Pink,21GMX051P,7/22/2021,Systematic,30,Seldovia/Barabara/Tutka,CCP,Southern,24106,SGN
+198,2021,ADFG,Pink,21GMX051P,7/22/2021,Systematic,30,Seldovia/Barabara/Tutka,CCP,Southern,24117,SGN
+199,2021,ADFG,Pink,21GMX051P,7/22/2021,Systematic,30,Seldovia/Barabara/Tutka,CCP,Southern,24118,SGN
+200,2021,ADFG,Sockeye,21PSD052S,7/22/2021,Grab,30,Tutka Lagoon,HCR,Southern,24107,PS
+201,2021,ADFG,Pink,21PSD053P,7/22/2021,Grab,30,Tutka Lagoon,HCR,Southern,24107,PS
+202,2021,ADFG,Sockeye,21PSD054S,7/23/2021,Grab,30,Neptune Bay,CCP,Southern,24106,PS
+203,2021,ADFG,Pink,21PSD055P,7/23/2021,Grab,30,Neptune Bay,CCP,Southern,24106,PS
+204,2021,ADFG,Sockeye,21PSD056S,7/23/2021,Grab,30,Otter Beach Tutka,CCP,Southern,24106,PS
+205,2021,ADFG,Pink,21PSD057P,7/23/2021,Grab,30,Otter Beach Tutka,CCP,Southern,24106,PS
+206,2021,ADFG,Sockeye,21PSD058S,7/23/2021,Grab,30,Sadie Cove,CCP,Southern,24106,PS
+207,2021,ADFG,Sockeye,21GMX059S,7/24/2021,Systematic,30,Seldovia/Barabara/Tutka,CCP,Southern,24106,SGN
+208,2021,ADFG,Sockeye,21GMX059S,7/24/2021,Systematic,30,Seldovia/Barabara/Tutka,CCP,Southern,24117,SGN
+209,2021,ADFG,Sockeye,21GMX059S,7/24/2021,Systematic,30,Seldovia/Barabara/Tutka,CCP,Southern,24118,SGN
+210,2021,ADFG,Pink,21GMX060P,7/24/2021,Systematic,30,Seldovia/Barabara/Tutka,CCP,Southern,24106,SGN
+211,2021,ADFG,Pink,21GMX060P,7/24/2021,Systematic,30,Seldovia/Barabara/Tutka,CCP,Southern,24117,SGN
+212,2021,ADFG,Pink,21GMX060P,7/24/2021,Systematic,30,Seldovia/Barabara/Tutka,CCP,Southern,24118,SGN
+213,2021,ADFG,Sockeye,21PSD061S,7/26/2021,Grab,31,Neptune Bay,CCP,Southern,24191,PS
+214,2021,ADFG,Pink,21PSD062P,7/26/2021,Grab,31,Neptune Bay,CCP,Southern,24191,PS
+215,2021,ADFG,Sockeye,21PSD063S,7/26/2021,Grab,31,Sadie Cove,CCP,Southern,24106,PS
+216,2021,ADFG,Pink,21PSD064P,7/26/2021,Grab,31,Sadie Cove,CCP,Southern,24106,PS
+217,2021,ADFG,Sockeye,21GHC065S,7/28/2021,Systematic,31,Halibut Cove,CCP,Southern,24115,SGN
+218,2021,ADFG,Sockeye,21GMX066S,7/28/2021,Systematic,31,Seldovia/Barabara/Tutka,CCP,Southern,24106,SGN
+219,2021,ADFG,Sockeye,21GMX066S,7/28/2021,Systematic,31,Seldovia/Barabara/Tutka,CCP,Southern,24117,SGN
+220,2021,ADFG,Sockeye,21GMX066S,7/28/2021,Systematic,31,Seldovia/Barabara/Tutka,CCP,Southern,24118,SGN
+221,2021,ADFG,Pink,21GMX067P,7/28/2021,Grab,31,Seldovia/Barabara/Tutka,CCP,Southern,24106,SGN
+222,2021,ADFG,Pink,21GMX067P,7/28/2021,Grab,31,Seldovia/Barabara/Tutka,CCP,Southern,24117,SGN
+223,2021,ADFG,Pink,21GMX067P,7/28/2021,Grab,31,Seldovia/Barabara/Tutka,CCP,Southern,24118,SGN
+224,2021,ADFG,Sockeye,21PSD068S,7/30/2021,Grab,31,Halibut Cove,CCP,Southern,24115,PS
+225,2021,ADFG,Pink,21PSD069P,7/30/2021,Grab,31,Halibut Cove,CCP,Southern,24115,PS
+226,2021,ADFG,Sockeye,21PSD070S,7/30/2021,Grab,31,Neptune Bay,CCP,Southern,24191,PS
+227,2021,ADFG,Pink,21PSD071P,7/30/2021,Grab,31,Neptune Bay,CCP,Southern,24191,PS
+228,2021,ADFG,Sockeye,21PSD072S,7/30/2021,Grab,31,Sadie Cove,CCP,Southern,24106,PS
+229,2021,ADFG,Pink,21PSD073P,7/30/2021,Grab,31,Sadie Cove,CCP,Southern,24106,PS
+230,2021,ADFG,Sockeye,21PSD074S,8/2/2021,Grab,32,Neptune Bay,CCP,Southern,24191,PS
+231,2021,ADFG,Pink,21PSD075P,8/2/2021,Grab,32,Neptune Bay,CCP,Southern,24191,PS
+232,2021,ADFG,Sockeye,21PSD076S,8/4/2021,Grab,32,Halibut Cove,CCP,Southern,24115,PS
+233,2021,ADFG,Pink,21PSD077P,8/4/2021,Grab,32,Neptune Bay,CCP,Southern,24191,PS
+234,2021,ADFG,Sockeye,21PSD078S,8/4/2021,Grab,32,Neptune Bay,CCP,Southern,24191,PS
+235,2021,ADFG,Pink,21PSD079P,8/4/2021,Grab,32,Tutka,CCP,Southern,24106,PS
+236,2021,ADFG,Sockeye,21PSD080S,8/6/2021,Grab,32,Halibut Cove,CCP,Southern,24115,PS
+237,2021,ADFG,Pink,21PSD081P,8/6/2021,Grab,32,Halibut Cove,CCP,Southern,24115,PS
+238,2021,ADFG,Pink,21PSD082P,8/13/2021,Grab,33,Tutka Lagoon,HCR,Southern,24107,PS
+239,2020,ADFG,Sockeye,20GBT001S,6/10/2020,Systematic,24,Barabara/Tutka,CCP,Southern,24106,SGN
+240,2020,ADFG,Sockeye,20GBT001S,6/10/2020,Systematic,24,Barabara/Tutka,CCP,Southern,24118,SGN
+241,2020,ADFG,Sockeye,20GMX002S,6/10/2020,Systematic,24,Seldovia/Barabara/Tutka,CCP,Southern,24106,SGN
+242,2020,ADFG,Sockeye,20GMX002S,6/10/2020,Systematic,24,Seldovia/Barabara/Tutka,CCP,Southern,24117,SGN
+243,2020,ADFG,Sockeye,20GMX002S,6/10/2020,Systematic,24,Seldovia/Barabara/Tutka,CCP,Southern,24118,SGN
+244,2020,ADFG,Sockeye,20GSL003S,6/17/2020,Systematic,25,Seldovia,CCP,Southern,24117,SGN
+245,2020,ADFG,Sockeye,20GMX004S,6/17/2020,Systematic,25,Seldovia/Barabara/Tutka,CCP,Southern,24106,SGN
+246,2020,ADFG,Sockeye,20GMX004S,6/17/2020,Systematic,25,Seldovia/Barabara/Tutka,CCP,Southern,24117,SGN
+247,2020,ADFG,Sockeye,20GMX004S,6/17/2020,Systematic,25,Seldovia/Barabara/Tutka,CCP,Southern,24118,SGN
+248,2020,ADFG,Sockeye,20PSD005S,6/19/2020,Grab,25,Pederson Bay,CCP,Southern,24190,PS
+249,2020,ADFG,Sockeye,20PSD006S,6/22/2020,Grab,26,Pederson Bay,CCP,Southern,24190,PS
+250,2020,ADFG,Sockeye,20GHC007S,6/24/2020,Census,26,Halibut Cove,CCP,Southern,24115,SGN
+251,2020,ADFG,Sockeye,20GBT008S,6/24/2020,Census,26,Barabara/Tutka,CCP,Southern,24106,SGN
+252,2020,ADFG,Sockeye,20GBT008S,6/24/2020,Census,26,Barabara/Tutka,CCP,Southern,24118,SGN
+253,2020,ADFG,Sockeye,20GBT009S,6/24/2020,Systematic,26,Barabara/Tutka,CCP,Southern,24106,SGN
+254,2020,ADFG,Sockeye,20GBT009S,6/24/2020,Systematic,26,Barabara/Tutka,CCP,Southern,24118,SGN
+255,2020,ADFG,Sockeye,20GSL010S,6/24/2020,Systematic,26,Seldovia,CCP,Southern,24117,SGN
+256,2020,ADFG,Sockeye,20PSD011S,6/26/2020,Grab,26,China Poot SHA,CCP,Southern,24192,PS
+257,2020,ADFG,Sockeye,20PSD012S,6/26/2020,Grab,26,Neptune Bay/Hazel SHA,CCP,Southern,24193,PS
+258,2020,ADFG,Sockeye,20PSD013S,6/26/2020,Grab,26,Pederson Bay,CCP,Southern,24190,PS
+259,2020,ADFG,Sockeye,20PSD014S,6/29/2020,Grab,27,China Poot SHA,CCP,Southern,24192,PS
+260,2020,ADFG,Sockeye,20PSD015S,6/29/2020,Grab,27,Neptune Bay Section,CCP,Southern,24191,PS
+261,2020,ADFG,Sockeye,20GBT016S,7/1/2020,Systematic,27,Barabara/Tutka,CCP,Southern,24106,SGN
+262,2020,ADFG,Sockeye,20GBT016S,7/1/2020,Systematic,27,Barabara/Tutka,CCP,Southern,24118,SGN
+263,2020,ADFG,Sockeye,20GSL017S,7/1/2020,Systematic,27,Seldovia,CCP,Southern,24117,SGN
+264,2020,ADFG,Sockeye,20GBT018S,7/1/2020,Systematic,27,Barabara/Tutka,CCP,Southern,24106,SGN
+265,2020,ADFG,Sockeye,20GBT018S,7/1/2020,Systematic,27,Barabara/Tutka,CCP,Southern,24118,SGN
+266,2020,ADFG,Sockeye,20PSD019S,7/1/2020,Grab,27,Neptune Bay Section,CCP,Southern,24191,PS
+267,2020,ADFG,Sockeye,20PSD020S,7/1/2020,Grab,27,Neptune Bay Section,CCP,Southern,24191,PS
+268,2020,ADFG,Sockeye,20PSD021S,7/6/2020,Grab,28,China Poot SHA,CCP,Southern,24192,PS
+269,2020,ADFG,Sockeye,20PSD022S,7/6/2020,Grab,28,China Poot Section,CCP,Southern,24190,PS
+270,2020,ADFG,Sockeye,20PSD023S,7/6/2020,Grab,28,China Poot Section,CCP,Southern,24190,PS
+271,2020,ADFG,Sockeye,20GSL024S,7/8/2020,Systematic,28,Seldovia,CCP,Southern,24117,SGN
+272,2020,ADFG,Sockeye,20GBT025S,7/8/2020,Systematic,28,Barabara/Tutka,CCP,Southern,24106,SGN
+273,2020,ADFG,Sockeye,20GBT025S,7/8/2020,Systematic,28,Barabara/Tutka,CCP,Southern,24118,SGN
+274,2020,ADFG,Sockeye,20GBT026S,7/8/2020,Grab,28,Barabara/Tutka,CCP,Southern,24106,SGN
+275,2020,ADFG,Sockeye,20GBT026S,7/8/2020,Grab,28,Barabara/Tutka,CCP,Southern,24118,SGN
+276,2020,ADFG,Pink,20GBT027P,7/8/2020,Grab,28,Barabara/Tutka,CCP,Southern,24106,SGN
+277,2020,ADFG,Pink,20GBT027P,7/8/2020,Grab,28,Barabara/Tutka,CCP,Southern,24118,SGN
+278,2020,ADFG,Pink,20GMX028P,7/8/2020,Systematic,28,Seldovia/Barabara/Tutka,CCP,Southern,24106,SGN
+279,2020,ADFG,Pink,20GMX028P,7/8/2020,Systematic,28,Seldovia/Barabara/Tutka,CCP,Southern,24117,SGN
+280,2020,ADFG,Pink,20GMX028P,7/8/2020,Systematic,28,Seldovia/Barabara/Tutka,CCP,Southern,24118,SGN
+281,2020,ADFG,Sockeye,20PSD029S,7/10/2020,Grab,28,Neptune Bay Section,CCP,Southern,24191,PS
+282,2020,ADFG,Sockeye,20PSD030S,7/10/2020,Grab,28,China Poot SHA,CCP,Southern,24192,PS
+283,2020,ADFG,Sockeye,20PSD031S,7/13/2020,Grab,29,China Poot SHA-N. Arm,CCP,Southern,24192,PS
+284,2020,ADFG,Sockeye,20PSD032S,7/12/2020,Grab,29,Neptune Bay Section,CCP,Southern,24191,PS
+285,2020,ADFG,Sockeye,20GHC033S,7/15/2020,Grab,29,Halibut Cove,CCP,Southern,24115,SGN
+286,2020,ADFG,Sockeye,20GMX034S,7/15/2020,Systematic,29,Barabara/Tutka,CCP,Southern,24106,SGN
+287,2020,ADFG,Sockeye,20GMX034S,7/15/2020,Systematic,29,Barabara/Tutka,CCP,Southern,24118,SGN
+288,2020,ADFG,Sockeye,20GSL035S,7/15/2020,Systematic,29,Seldovia,CCP,Southern,24117,SGN
+289,2020,ADFG,Sockeye,20GMX036S,7/15/2020,Grab,29,Barabara/Tutka,CCP,Southern,24106,SGN
+290,2020,ADFG,Sockeye,20GMX036S,7/15/2020,Grab,29,Barabara/Tutka,CCP,Southern,24118,SGN
+291,2020,ADFG,Pink,20GMX037P,7/15/2020,Grab,29,Barabara/Tutka,CCP,Southern,24106,SGN
+292,2020,ADFG,Pink,20GMX037P,7/15/2020,Grab,29,Barabara/Tutka,CCP,Southern,24118,SGN
+293,2020,ADFG,Pink,20GMX038P,7/15/2020,Systematic,29,Seldovia/Barabara/Tutka,CCP,Southern,24106,SGN
+294,2020,ADFG,Pink,20GMX038P,7/15/2020,Systematic,29,Seldovia/Barabara/Tutka,CCP,Southern,24117,SGN
+295,2020,ADFG,Pink,20GMX038P,7/15/2020,Systematic,29,Seldovia/Barabara/Tutka,CCP,Southern,24118,SGN
+296,2020,ADFG,Sockeye,20PSD039S,7/17/2020,Grab,29,China Poot SHA,CCP,Southern,24192,PS
+297,2020,ADFG,Sockeye,20PSD040S,7/17/2020,Grab,29,Tutka Bay/Sadie,CCP,Southern,24106,PS
+298,2020,ADFG,Sockeye,20PSD041S,7/17/2020,Grab,29,Neptune Bay Section,CCP,Southern,24171,PS
+299,2020,ADFG,Pink,20PSD042P,7/17/2020,Grab,29,Tutka Bay,CCP,Southern,24106,PS
+300,2020,ADFG,Pink,20PSD043P,7/17/2020,Grab,29,Sadie Cove,CCP,Southern,24106,PS
+301,2020,ADFG,Pink,20PSD044P,7/17/2020,Grab,29,Neptune Bay Section,CCP,Southern,24191,PS
+302,2020,ADFG,Sockeye,20PSD045S,7/20/2020,Grab,30,Neptune Bay Section,CCP,Southern,24191,PS
+303,2020,ADFG,Pink,20PSD046P,7/20/2020,Grab,30,Neptune Bay Section,CCP,Southern,24191,PS
+304,2020,ADFG,Sockeye,20PSD047S,7/20/2020,Grab,30,Neptune Bay Section,CCP,Southern,24191,PS
+305,2020,ADFG,Pink,20PSD048P,7/20/2020,Grab,30,Neptune Bay Section,CCP,Southern,24191,PS
+306,2020,ADFG,Sockeye,20PSD049S,7/20/2020,Grab,30,China Poot SHA,CCP,Southern,24192,PS
+307,2020,ADFG,Pink,20GBT050P,7/22/2020,Grab,30,Barabara/Tutka,CCP,Southern,24106,SGN
+308,2020,ADFG,Pink,20GBT050P,7/22/2020,Grab,30,Barabara/Tutka,CCP,Southern,24118,SGN
+309,2020,ADFG,Sockeye,20GBT051S,7/22/2020,Grab,30,Barabara/Tutka,CCP,Southern,24106,SGN
+310,2020,ADFG,Sockeye,20GBT051S,7/22/2020,Grab,30,Barabara/Tutka,CCP,Southern,24118,SGN
+311,2020,ADFG,Sockeye,20GHC052S,7/22/2020,Grab,30,Halibut Cove,CCP,Southern,24115,SGN
+312,2020,ADFG,Pink,20GMX053P,7/22/2020,Systematic,30,Seldovia/Barabara/Tutka,CCP,Southern,24106,SGN
+313,2020,ADFG,Pink,20GMX053P,7/22/2020,Systematic,30,Seldovia/Barabara/Tutka,CCP,Southern,24117,SGN
+314,2020,ADFG,Pink,20GMX053P,7/22/2020,Systematic,30,Seldovia/Barabara/Tutka,CCP,Southern,24118,SGN
+315,2020,ADFG,Sockeye,20GBT054S,7/22/2020,Systematic,30,Barabara/Tutka,CCP,Southern,24106,SGN
+316,2020,ADFG,Sockeye,20GBT054S,7/22/2020,Systematic,30,Barabara/Tutka,CCP,Southern,24118,SGN
+317,2020,ADFG,Pink,20GMX055P,7/22/2020,Grab,30,Seldovia/Barabara/Tutka,CCP,Southern,24106,SGN
+318,2020,ADFG,Pink,20GMX055P,7/22/2020,Grab,30,Seldovia/Barabara/Tutka,CCP,Southern,24117,SGN
+319,2020,ADFG,Pink,20GMX055P,7/22/2020,Grab,30,Seldovia/Barabara/Tutka,CCP,Southern,24118,SGN
+320,2020,ADFG,Sockeye,20GSL056S,7/22/2020,Grab,30,Seldovia,CCP,Southern,24117,SGN
+321,2020,ADFG,Pink,20PSD057P,7/24/2020,Grab,30,Tutka Bay Section,CCP,Southern,24106,PS
+322,2020,ADFG,Pink,20PSD058P,7/24/2020,Grab,30,Tutka Bay Section,CCP,Southern,24106,PS
+323,2020,ADFG,Sockeye,20GHC059S,7/25/2020,Grab,30,Halibut Cove,CCP,Southern,24115,SGN
+324,2020,ADFG,Pink,20PSD060P,7/27/2020,Grab,31,Tutka Bay SHA,CCP,Southern,24107,PS
+325,2020,ADFG,Pink,20GMX061P,7/29/2020,Systematic,31,Seldovia/Barabara/Tutka,CCP,Southern,24106,SGN
+326,2020,ADFG,Pink,20GMX061P,7/29/2020,Systematic,31,Seldovia/Barabara/Tutka,CCP,Southern,24117,SGN
+327,2020,ADFG,Pink,20GMX061P,7/29/2020,Systematic,31,Seldovia/Barabara/Tutka,CCP,Southern,24118,SGN
+328,2020,ADFG,Sockeye,20GSL062S,7/29/2020,Grab,31,Seldovia,CCP,Southern,24117,SGN
+329,2020,ADFG,Sockeye,20GBT063S,7/29/2020,Grab,31,Kasitsna,CCP,Southern,24107,SGN
+330,2020,ADFG,Sockeye,20GBT063S,7/29/2020,Grab,31,Kasitsna,CCP,Southern,24118,SGN
+331,2020,ADFG,Sockeye,20GHC064S,7/29/2020,Grab,31,Halibut Cove,CCP,Southern,24115,SGN
+332,2020,ADFG,Pink,20GBT065P,7/29/2020,Grab,31,Kasitsna,CCP,Southern,24106,SGN
+333,2020,ADFG,Pink,20GBT065P,7/29/2020,Grab,31,Kasitsna,CCP,Southern,24118,SGN
+334,2020,ADFG,Pink,20PSD066P,7/31/2020,Grab,31,Tutka Bay SHA,CCP,Southern,24107,PS
+335,2020,ADFG,Pink,20PSD067P,7/31/2020,Grab,31,Tutka Bay SHA,CCP,Southern,24107,PS
+336,2020,ADFG,Pink,20PSD069P,8/3/2020,Grab,32,Tutka Bay - Otter Cove,CCP,Southern,24106,PS
+337,2020,ADFG,Pink,20PSD072P,8/7/2020,Grab,32,Tutka Bay SHA,CCP,Southern,24107,PS
+338,2020,ADFG,Pink,20PSD073P,8/7/2020,Grab,32,Sadie Cove - Quarry Pt,CCP,Southern,24106,PS
+339,2020,ADFG,Pink,20PSD074P,8/10/2020,Grab,33,Tutka Bay SHA,CCP,Southern,24107,PS
+340,2020,ADFG,Pink,20PSD075P,8/14/2020,Grab,33,Tutka Bay SHA,CCP,Southern,24107,PS
+341,2020,ADFG,Pink,20PSD076P,8/17/2020,Grab,34,Port Graham,CCP,Southern,24120,PS
+342,2020,ADFG,Pink,20PSD077P,8/17/2020,Grab,34,Port Graham,CCP,Southern,24120,PS
+343,2019,ADFG,Sockeye,19GSL001S,6/5/2019,CCP,23,Seldovia,CCP,Southern,24117,SGN
+344,2019,ADFG,Sockeye,19GBT002S,6/5/2019,CCP,23,Kasitsna,CCP,Southern,24106,SGN
+345,2019,ADFG,Sockeye,19GBT002S,6/5/2019,CCP,23,Kasitsna,CCP,Southern,24118,SGN
+346,2019,ADFG,Sockeye,19GBT003S,6/12/2019,CCP,24,Kasitsna,CCP,Southern,24106,SGN
+347,2019,ADFG,Sockeye,19GBT003S,6/12/2019,CCP,24,Kasitsna,CCP,Southern,24118,SGN
+348,2019,ADFG,Sockeye,19GSL004S,6/12/2019,CCP,24,Seldovia,CCP,Southern,24117,SGN
+349,2019,ADFG,Sockeye,19GSL005S,6/19/2019,CCP,25,Seldovia,CCP,Southern,24117,SGN
+350,2019,ADFG,Sockeye,19GBT006S,6/19/2019,CCP,25,Kasitsna,CCP,Southern,24106,SGN
+351,2019,ADFG,Sockeye,19GBT006S,6/19/2019,CCP,25,Kasitsna,CCP,Southern,24118,SGN
+352,2019,ADFG,Sockeye,19GHC007S,6/19/2019,CCP,25,Halibut Cove,CCP,Southern,24115,SGN
+353,2019,ADFG,Sockeye,19PSD008S,6/21/2019,CCP,25,Anisom Point,CCP,Southern,24191,PS
+354,2019,ADFG,Sockeye,19PSD009S,6/21/2019,CCP,25,Peterson Bay (west) AKA Eagle Beach,CCP,Southern,24190,PS
+355,2019,ADFG,Sockeye,19PSD010S,6/21/2019,CCP,25,China Poot (inner),CCP,Southern,24192,PS
+356,2019,ADFG,Sockeye,19GHC011S,6/26/2019,CCP,26,Halibut Cove,CCP,Southern,24115,SGN
+357,2019,ADFG,Sockeye,19GSL012S,6/26/2019,CCP,26,Seldovia,CCP,Southern,24117,SGN
+358,2019,ADFG,Sockeye,19GBT013S,6/26/2019,CCP,26,Kasitsna,CCP,Southern,24106,SGN
+359,2019,ADFG,Sockeye,19GBT013S,6/26/2019,CCP,26,Kasitsna,CCP,Southern,24118,SGN
+360,2019,ADFG,Sockeye,19PSD014S,6/28/2019,CCP,26,Peterson Bay (west) AKA Eagle Beach,CCP,Southern,24190,PS
+361,2019,ADFG,Sockeye,19PSD015S,6/28/2019,CCP,26,Neptune Cove (west),CCP,Southern,24193,PS
+362,2019,ADFG,Sockeye,19PSD016S,6/28/2019,CCP,26,Anisom Point (north),CCP,Southern,24191,PS
+363,2019,ADFG,Sockeye,19PSD017S,6/28/2019,CCP,26,Anisom Point (north),CCP,Southern,24191,PS
+364,2019,ADFG,Sockeye,19PSD018S,7/1/2019,CCP,27,Halibut Cove (Peterson Point),CCP,Southern,24115,PS
+365,2019,ADFG,Sockeye,19PSD019S,7/1/2019,CCP,27,Halibut Cove (Peterson Point),CCP,Southern,24115,PS
+366,2019,ADFG,Sockeye,19PSD020S,7/1/2019,CCP,27,Peterson Bay (west) AKA Eagle Beach,CCP,Southern,24190,PS
+367,2019,ADFG,Sockeye,19PSD021S,7/1/2019,CCP,27,Hay Stack,CCP,Southern,24193,PS
+368,2019,ADFG,Sockeye,19GHC022S,7/3/2019,CCP,27,Halibut Cove,CCP,Southern,24115,SGN
+369,2019,ADFG,Sockeye,19GSL023S,7/3/2019,CCP,27,Seldovia,CCP,Southern,24117,SGN
+370,2019,ADFG,Sockeye,19GBT024S,7/3/2019,CCP,27,Kasitsna,CCP,Southern,24106,SGN
+371,2019,ADFG,Sockeye,19GBT024S,7/3/2019,CCP,27,Kasitsna,CCP,Southern,24118,SGN
+372,2019,ADFG,Sockeye,19PSD025S,7/5/2019,CCP,27,Anisom Point (north),CCP,Southern,24191,PS
+373,2019,ADFG,Pink,19PSD026P,7/5/2019,CCP,27,Anisom Point (north),CCP,Southern,24191,PS
+374,2019,ADFG,Sockeye,19PSD027S,7/5/2019,CCP,27,Hay Stack,CCP,Southern,24193,PS
+375,2019,ADFG,Sockeye,19GHC028S,7/6/2019,CCP,27,Halibut Cove,CCP,Southern,24115,SGN
+376,2019,ADFG,Sockeye,19PSD029S,7/8/2019,CCP,28,Halibut Cove (Peterson Point),CCP,Southern,24115,PS
+377,2019,ADFG,Pink,19PSD030P,7/8/2019,CCP,28,Halibut Cove (Peterson Point),CCP,Southern,24115,PS
+378,2019,ADFG,Sockeye,19PSD031S,7/8/2019,CCP,28,Peterson Bay (Coastal),CCP,Southern,24190,PS
+379,2019,ADFG,Pink,19PSD032P,7/8/2019,CCP,28,Peterson Bay (middle),CCP,Southern,24190,PS
+380,2019,ADFG,Sockeye,19PSD033S,7/8/2019,CCP,28,Peterson Bay (west) AKA Eagle Beach,CCP,Southern,24190,PS
+381,2019,ADFG,Pink,19PSD034P,7/8/2019,CCP,28,Peterson Bay (west) AKA Eagle Beach,CCP,Southern,24190,PS
+382,2019,ADFG,Sockeye,19GHC035S,7/10/2019,CCP,28,Halibut Cove,CCP,Southern,24115,SGN
+383,2019,ADFG,Sockeye,19GHC036S,7/10/2019,CCP,28,Halibut Cove,CCP,Southern,24115,SGN
+384,2019,ADFG,Sockeye,19GBT037S,7/10/2019,CCP,28,Kasitsna,CCP,Southern,24106,SGN
+385,2019,ADFG,Sockeye,19GBT037S,7/10/2019,CCP,28,Kasitsna,CCP,Southern,24118,SGN
+386,2019,ADFG,Sockeye,19GSL038S,7/10/2019,CCP,28,Seldovia,CCP,Southern,24117,SGN
+387,2019,ADFG,Sockeye,19PSD039S,7/11/2019,HCR,28,China Poot (inner),HCR,Southern,24192,PS
+388,2019,ADFG,Sockeye,19PSD040S,7/12/2019,CCP,28,Hay Stack,CCP,Southern,24193,PS
+389,2019,ADFG,Pink,19PSD041P,7/12/2019,CCP,28,Hay Stack,CCP,Southern,24193,PS
+390,2019,ADFG,Sockeye,19PSD042S,7/12/2019,CCP,28,Hay Stack,CCP,Southern,24193,PS
+391,2019,ADFG,Pink,19PSD043P,7/12/2019,CCP,28,Hay Stack,CCP,Southern,24193,PS
+392,2019,ADFG,Sockeye,19PSD044S,7/12/2019,CCP,28,Anisom Point (north),CCP,Southern,24191,PS
+393,2019,ADFG,Pink,19PSD045P,7/12/2019,CCP,28,Anisom Point (north),CCP,Southern,24191,PS
+394,2019,ADFG,Sockeye,19PSD046S,7/12/2019,CCP,28,Anisom Point (north),CCP,Southern,24191,PS
+395,2019,ADFG,Sockeye,19PSD047S,7/15/2019,CCP,29,Peterson Bay (west) AKA Eagle Beach,CCP,Southern,24190,PS
+396,2019,ADFG,Pink,19PSD048P,7/15/2019,CCP,29,Peterson Bay (west) AKA Eagle Beach,CCP,Southern,24190,PS
+397,2019,ADFG,Sockeye,19PSD049S,7/15/2019,CCP,29,Peterson Bay (west) AKA Eagle Beach,CCP,Southern,24190,PS
+398,2019,ADFG,Pink,19PSD050P,7/15/2019,CCP,29,Peterson Bay (west) AKA Eagle Beach,CCP,Southern,24190,PS
+399,2019,ADFG,Sockeye,19PSD051S,7/15/2019,CCP,29,Hay Stack,CCP,Southern,24193,PS
+400,2019,ADFG,Pink,19PSD052P,7/15/2019,CCP,29,Hay Stack,CCP,Southern,24193,PS
+401,2019,ADFG,Sockeye,19GHC053S,7/17/2019,CCP,29,Halibut Cove,CCP,Southern,24115,SGN
+402,2019,ADFG,Sockeye,19GSL054S,7/17/2019,CCP,29,Seldovia,CCP,Southern,24117,SGN
+403,2019,ADFG,Sockeye,19GBT055S,7/17/2019,CCP,29,Kasitsna,CCP,Southern,24106,SGN
+404,2019,ADFG,Sockeye,19GBT055S,7/17/2019,CCP,29,Kasitsna,CCP,Southern,24118,SGN
+405,2019,ADFG,Sockeye,19GHC056S,7/17/2019,CCP,29,Halibut Cove,CCP,Southern,24115,SGN
+406,2019,ADFG,Pink,19PSD057P,7/19/2019,CCP,29,Herring Islands,CCP,Southern,24106,PS
+407,2019,ADFG,Sockeye,19PSD058S,7/19/2019,CCP,29,Otter Cove,CCP,Southern,24106,PS
+408,2019,ADFG,Pink,19PSD059P,7/19/2019,CCP,29,Otter Cove,CCP,Southern,24106,PS
+409,2019,ADFG,Sockeye,19PSD060S,7/19/2019,CCP,29,Hay Stack,CCP,Southern,24193,PS
+410,2019,ADFG,Pink,19PSD061P,7/19/2019,CCP,29,Hay Stack,CCP,Southern,24193,PS
+411,2019,ADFG,Sockeye,19PSD062S,7/19/2019,CCP,29,Peterson Bay (west) AKA Eagle Beach,CCP,Southern,24190,PS
+412,2019,ADFG,Sockeye,19PSD063S,7/22/2019,CCP,30,Peterson Bay (west) AKA Eagle Beach,CCP,Southern,24190,PS
+413,2019,ADFG,Sockeye,19PSD064S,7/22/2019,CCP,30,Peterson Bay (west) AKA Eagle Beach,CCP,Southern,24190,PS
+414,2019,ADFG,Sockeye,19PSD065S,7/22/2019,CCP,30,Hay Stack,CCP,Southern,24193,PS
+415,2019,ADFG,Pink,19PSD066P,7/22/2019,CCP,30,Hay Stack,CCP,Southern,24193,PS
+416,2019,ADFG,Sockeye,19PSD067S,7/22/2019,CCP,30,Otter Cove,CCP,Southern,24106,PS
+417,2019,ADFG,Pink,19PSD068P,7/22/2019,CCP,30,Otter Cove,CCP,Southern,24106,PS
+418,2019,ADFG,Sockeye,19GHC069S,7/24/2019,CCP,30,Halibut Cove,CCP,Southern,24115,SGN
+419,2019,ADFG,Sockeye,19GSL070S,7/24/2019,CCP,30,Seldovia,CCP,Southern,24117,SGN
+420,2019,ADFG,Sockeye,19GBT071S,7/24/2019,CCP,30,Kasitsna,CCP,Southern,24106,SGN
+421,2019,ADFG,Sockeye,19GBT071S,7/24/2019,CCP,30,Kasitsna,CCP,Southern,24118,SGN
+423,2019,ADFG,Sockeye,19PSD073S,7/26/2019,CCP,30,Hay Stack,CCP,Southern,24193,PS
+424,2019,ADFG,Pink,19PSD074P,7/26/2019,CCP,30,Hay Stack,CCP,Southern,24193,PS
+425,2019,ADFG,Sockeye,19PSD075S,7/26/2019,CCP,30,Peterson Bay (west) AKA Eagle Beach,CCP,Southern,24190,PS
+426,2019,ADFG,Pink,19PSD076P,7/26/2019,CCP,30,Peterson Bay (west) AKA Eagle Beach,CCP,Southern,24190,PS
+427,2019,ADFG,Sockeye,19PSD077S,7/26/2019,CCP,30,Halibut Cove (Peterson Point),CCP,Southern,24115,PS
+428,2019,ADFG,Sockeye,19PSD078S,7/26/2019,CCP,30,Halibut Cove (Peterson Point),CCP,Southern,24115,PS
+429,2019,ADFG,Sockeye,19PSD079S,7/29/2019,CCP,31,Halibut Cove (Peterson Point),CCP,Southern,24115,PS
+430,2019,ADFG,Sockeye,19PSD080S,7/29/2019,CCP,31,Peterson Bay (west) AKA Eagle Beach,CCP,Southern,24190,PS
+431,2019,ADFG,Sockeye,19PSD081S,7/29/2019,CCP,31,Peterson Bay (west) AKA Eagle Beach,CCP,Southern,24190,PS
+432,2019,ADFG,Sockeye,19PSD082S,7/29/2019,CCP,31,Hay Stack,CCP,Southern,24193,PS
+433,2019,ADFG,Sockeye,19GHC083S,7/31/2019,CCP,31,Halibut Cove,CCP,Southern,24115,SGN
+434,2019,ADFG,Sockeye,19GSL084S,7/31/2019,CCP,31,Seldovia,CCP,Southern,24117,SGN
+435,2019,ADFG,Sockeye,19GBT085S,7/31/2019,CCP,31,Kasitsna,CCP,Southern,24106,SGN
+436,2019,ADFG,Sockeye,19GBT085S,7/31/2019,CCP,31,Kasitsna,CCP,Southern,24118,SGN
+437,2019,ADFG,Pink,19GSD086P,7/31/2019,CCP,31,Southern District,CCP,Southern,241,SGN
+438,2019,ADFG,Sockeye,19PSD088S,8/2/2019,CCP,31,Otter Cove,CCP,Southern,24106,PS
+439,2019,ADFG,Pink,19PSD089P,8/2/2019,CCP,31,Otter Cove,CCP,Southern,24106,PS
+440,2019,ADFG,Pink,19HMS090P,8/5/2019,ESC,32,Port Graham River,ESC,Southern,24120,Hand
+441,2019,ADFG,Sockeye,19PSD091S,8/5/2019,CCP,32,Halibut Cove (Peterson Point),CCP,Southern,24115,PS
+442,2019,ADFG,Pink,19PSD092P,8/5/2019,CCP,32,Halibut Cove (Peterson Point),CCP,Southern,24115,PS
+443,2019,ADFG,Sockeye,19PSD093S,8/5/2019,CCP,32,Halibut Cove (Peterson Point),CCP,Southern,24115,PS
+444,2019,ADFG,Pink,19PSD094P,8/5/2019,CCP,32,Halibut Cove (Peterson Point),CCP,Southern,24115,PS
+445,2019,ADFG,Sockeye,19GHC095S,8/7/2019,CCP,32,Halibut Cove,CCP,Southern,24115,SGN
+446,2019,ADFG,Sockeye,19GBT096S,8/7/2019,CCP,32,Kasitsna,CCP,Southern,24106,SGN
+447,2019,ADFG,Sockeye,19GBT096S,8/7/2019,CCP,32,Kasitsna,CCP,Southern,24118,SGN
+448,2019,ADFG,Pink,19GBT097P,8/7/2019,CCP,32,Kasitsna,CCP,Southern,24106,SGN
+449,2019,ADFG,Pink,19GBT097P,8/7/2019,CCP,32,Kasitsna,CCP,Southern,24118,SGN
+450,2019,ADFG,Pink,19WBS108P,8/14/2019,HBS,33,,HBS,Southern,24107,Weir
+451,2019,ADFG,Sockeye,19GBT109S,8/14/2019,CCP,33,Kasitsna,CCP,Southern,24106,SGN
+452,2019,ADFG,Sockeye,19GBT109S,8/14/2019,CCP,33,Kasitsna,CCP,Southern,24118,SGN
+453,2019,ADFG,Pink,19GBT110P,8/14/2019,CCP,33,Kasitsna,CCP,Southern,24106,SGN
+454,2019,ADFG,Pink,19GBT110P,8/14/2019,CCP,33,Kasitsna,CCP,Southern,24118,SGN
+455,2018,ADFG,Sockeye,18PSD01S,6/18/2018,CCP,25,Tutka powerline,CCP,Southern,24107,PS
+456,2018,ADFG,Sockeye,18PSD02S,6/22/2018,CCP,25,Halibut Cove,CCP,Southern,24115,PS
+457,2018,ADFG,Sockeye,18PSD03S,6/22/2018,CCP,25,Eagle Beach,CCP,Southern,24192,PS
+458,2018,ADFG,Sockeye,18PSD04S,6/25/2018,CCP,26,Peterson Bay (west),CCP,Southern,24190,PS
+459,2018,ADFG,Sockeye,18PSD05S,6/25/2018,CCP,26,Anisom Point (north),CCP,Southern,24191,PS
+460,2018,ADFG,Sockeye,18PSD06S,6/27/2018,CCP,26,Eagle Beach,CCP,Southern,24192,PS
+461,2018,ADFG,Sockeye,18PSD07S,6/27/2018,CCP,26,Peterson Bay (west),CCP,Southern,24190,PS
+462,2018,ADFG,Sockeye,18PSD08S,6/27/2018,CCP,26,Anisom Point (north),CCP,Southern,24191,PS
+463,2018,ADFG,Sockeye,18PSD09S,7/2/2018,CCP,27,Anisom Point (north),CCP,Southern,24191,PS
+464,2018,ADFG,Sockeye,18PSD10S,7/2/2018,CCP,27,Peterson Bay (west),CCP,Southern,24190,PS
+465,2018,ADFG,Sockeye,18PSD11S,7/6/2018,CCP,27,Anisom Point (north),CCP,Southern,24191,PS
+466,2018,ADFG,Sockeye,18PSD12S,7/6/2018,CCP,27,Peterson Bay (west),CCP,Southern,24190,PS
+467,2018,ADFG,Sockeye,18PSD13S,7/9/2018,CCP,28,Halibut Cove,CCP,Southern,24115,PS
+468,2018,ADFG,Sockeye,18PSD14S,7/9/2018,CCP,28,Peterson Bay (west),CCP,Southern,24190,PS
+469,2018,ADFG,Sockeye,18PSD15S,7/10/2018,HCR,28,China Poot SHA,HCR,Southern,24192,PS
+470,2018,ADFG,Sockeye,18PSD16S,7/13/2018,CCP,28,Otter Cove,CCP,Southern,24106,PS
+471,2018,ADFG,Pink,18PSD17P,7/13/2018,CCP,28,Otter Cove,CCP,Southern,24106,PS
+472,2018,ADFG,Sockeye,18PSD18S,7/13/2018,CCP,28,Anisom Point (north),CCP,Southern,24191,PS
+473,2018,ADFG,Sockeye,18PSD19S,7/16/2018,CCP,29,Peterson Bay (west),CCP,Southern,24190,PS
+474,2018,ADFG,Sockeye,18PSD20S,7/16/2018,CCP,29,Otter Cove,CCP,Southern,24106,PS
+475,2018,ADFG,Pink,18PSD21P,7/16/2018,CCP,29,Otter Cove,CCP,Southern,24106,PS
+476,2018,ADFG,Pink,18PSD22P,7/20/2018,CCP,29,Quarry Point,CCP,Southern,24106,PS
+477,2018,ADFG,Pink,18PSD23P,7/20/2018,CCP,29,Herring Islands,CCP,Southern,24106,PS
+478,2018,ADFG,Sockeye,18PSD24S,7/20/2018,CCP,29,Anisom Point (north),CCP,Southern,24191,PS
+479,2018,ADFG,Sockeye,18PSD25S,7/23/2018,CCP,30,Peterson Bay (west),CCP,Southern,24190,PS
+480,2018,ADFG,Pink,18PSD26P,7/23/2018,CCP,30,Peterson Bay (west),CCP,Southern,24190,PS
+481,2018,ADFG,Pink,18PSD27P,7/23/2018,CCP,30,Herring Islands,CCP,Southern,24106,PS
+482,2018,ADFG,Pink,18PSD28P,7/23/2018,HCR,30,Outside Tutka Lagoon,HCR,Southern,24107,PS
+483,2018,ADFG,Pink,18PSD29P,7/27/2018,CCP,30,Quarry Point,CCP,Southern,24106,PS
+484,2018,ADFG,Pink,18PSD30P,7/27/2018,CCP,30,Herring Islands,CCP,Southern,24106,PS
+485,2018,ADFG,Pink,18PSD31P,7/30/2018,CCP,31,Quarry Point,CCP,Southern,24106,PS
+486,2018,ADFG,Pink,18PSD32P,7/30/2018,CCP,31,Sadie Cove (North shore),CCP,Southern,24106,PS
+487,2018,ADFG,Pink,18PSD33P,8/3/2018,CCP,31,Quarry Point,CCP,Southern,24106,PS
+488,2018,ADFG,Pink,18PSD34P,8/3/2018,CCP,31,Otter Cove,CCP,Southern,24106,PS
+489,2018,ADFG,Pink,18PSD35P,8/6/2018,CCP,32,Quarry Point,CCP,Southern,24106,PS
+490,2018,ADFG,Pink,18PSD36P,8/6/2018,CCP,32,Otter Cove,CCP,Southern,24106,PS
+491,2018,ADFG,Pink,18PSD37P,8/8/2018,CCP,32,Glacier Spit(tip),CCP,Southern,24114,PS
+492,2018,ADFG,Pink,18PSD38P,8/10/2018,CCP,32,Port Graham,CCP,Southern,24120,PS
+493,2018,ADFG,Pink,18PSD39P,8/10/2018,CCP,32,Port Graham,CCP,Southern,24120,PS
+494,2018,ADFG,Pink,18PSD40P,8/15/2018,CCP,33,Tutka (San Juan),CCP,Southern,24107,PS
+495,2018,ADFG,Pink,18PSD41P,8/15/2018,CCP,33,Tutka (Sea Star Cove),CCP,Southern,24107,PS
+496,2018,ADFG,Pink,18PSD42P,8/17/2018,CCP,33,Tutka (Sea Star Cove),CCP,Southern,24107,PS
+497,2018,ADFG,Pink,18PSD43P,8/17/2018,CCP,33,Peterson Bay (west),CCP,Southern,24190,PS
+499,2018,ADFG,Pink,18PSD45P,9/5/2018,CCP,36,Tutka Lagoon,CCP,Southern,24107,PS
+500,2018,ADFG,Sockeye,18GSL01S,6/6/2018,CCP,23,Seldovia,CCP,Southern,24117,SGN
+501,2018,ADFG,Sockeye,18GBT02S,6/6/2018,CCP,23,Kasitsna,CCP,Southern,24106,SGN
+502,2018,ADFG,Sockeye,18GBT02S,6/6/2018,CCP,23,Kasitsna,CCP,Southern,24118,SGN
+503,2018,ADFG,Sockeye,18GPG03S,6/12/2018,CCP,24,Port Graham,CCP,Southern,24120,SGN
+504,2018,ADFG,Sockeye,18GBT04S,6/13/2018,CCP,24,Kasitsna,CCP,Southern,24106,SGN
+505,2018,ADFG,Sockeye,18GBT04S,6/13/2018,CCP,24,Kasitsna,CCP,Southern,24118,SGN
+506,2018,ADFG,Sockeye,18GSL05S,6/13/2018,CCP,24,Seldovia,CCP,Southern,24117,SGN
+507,2018,ADFG,Sockeye,18GPG06S,6/19/2018,CCP,25,Port Graham,CCP,Southern,24120,SGN
+508,2018,ADFG,Sockeye,18GSL07S,6/20/2018,CCP,25,Seldovia,CCP,Southern,24117,SGN
+509,2018,ADFG,Sockeye,18GBT08S,6/20/2018,CCP,25,Kasitsna,CCP,Southern,24106,SGN
+510,2018,ADFG,Sockeye,18GBT08S,6/20/2018,CCP,25,Kasitsna,CCP,Southern,24118,SGN
+511,2018,ADFG,Sockeye,18GHC09S,6/23/2018,CCP,25,Halibut Cove,CCP,Southern,24115,SGN
+512,2018,ADFG,Sockeye,18GHC10S,6/26/2018,CCP,26,Halibut Cove,CCP,Southern,24115,SGN
+513,2018,ADFG,Sockeye,18GPG11S,6/26/2018,CCP,26,Port Graham,CCP,Southern,24120,SGN
+514,2018,ADFG,Sockeye,18GBT12S,6/27/2018,CCP,26,Kasitsna,CCP,Southern,24106,SGN
+515,2018,ADFG,Sockeye,18GBT12S,6/27/2018,CCP,26,Kasitsna,CCP,Southern,24118,SGN
+516,2018,ADFG,Sockeye,18GSL13S,6/27/2018,CCP,26,Seldovia,CCP,Southern,24117,SGN
+517,2018,ADFG,Sockeye,18GBT14S,7/4/2018,CCP,27,Kasitsna,CCP,Southern,24106,SGN
+518,2018,ADFG,Sockeye,18GBT14S,7/4/2018,CCP,27,Kasitsna,CCP,Southern,24118,SGN
+519,2018,ADFG,Sockeye,18GSL15S,7/4/2018,CCP,27,Seldovia,CCP,Southern,24117,SGN
+520,2018,ADFG,Sockeye,18GHC16S,7/7/2018,CCP,27,Halibut Cove,CCP,Southern,24115,SGN
+521,2018,ADFG,Sockeye,18GBT17S,7/11/2018,CCP,28,Kasitsna,CCP,Southern,24106,SGN
+522,2018,ADFG,Sockeye,18GBT17S,7/11/2018,CCP,28,Kasitsna,CCP,Southern,24118,SGN
+523,2018,ADFG,Sockeye,18GSL18S,7/11/2018,CCP,28,Seldovia,CCP,Southern,24117,SGN
+524,2018,ADFG,Sockeye,18GBT19S,7/11/2018,CCP,28,Kasitsna,CCP,Southern,24106,SGN
+525,2018,ADFG,Sockeye,18GBT19S,7/11/2018,CCP,28,Kasitsna,CCP,Southern,24118,SGN
+526,2018,ADFG,Sockeye,18GHC20S,7/11/2018,CCP,28,Halibut Cove,CCP,Southern,24115,SGN
+527,2018,ADFG,Sockeye,18GHC21S,7/18/2018,CCP,29,Halibut Cove,CCP,Southern,24115,SGN
+528,2018,ADFG,Sockeye,18GSL22S,7/18/2018,CCP,29,Seldovia,CCP,Southern,24117,SGN
+529,2018,ADFG,Sockeye,18GBT23S,7/18/2018,CCP,29,Kasitsna,CCP,Southern,24106,SGN
+530,2018,ADFG,Sockeye,18GBT23S,7/18/2018,CCP,29,Kasitsna,CCP,Southern,24118,SGN
+531,2018,ADFG,Pink,18GSL24P,7/18/2018,CCP,29,Seldovia,CCP,Southern,24117,SGN
+532,2018,ADFG,Pink,18GBT25P,7/18/2018,CCP,29,Kasitsna,CCP,Southern,24106,SGN
+533,2018,ADFG,Pink,18GBT25P,7/18/2018,CCP,29,Kasitsna,CCP,Southern,24118,SGN
+534,2018,ADFG,Pink,18GBT26P,7/25/2018,CCP,30,Kasitsna,CCP,Southern,24106,SGN
+535,2018,ADFG,Pink,18GBT26P,7/25/2018,CCP,30,Kasitsna,CCP,Southern,24118,SGN
+536,2018,ADFG,Pink,18GSL27P,7/25/2018,CCP,30,Seldovia,CCP,Southern,24117,SGN
+537,2018,ADFG,Sockeye,18GBT28S,7/25/2018,CCP,30,Kasitsna,CCP,Southern,24106,SGN
+538,2018,ADFG,Sockeye,18GBT28S,7/25/2018,CCP,30,Kasitsna,CCP,Southern,24118,SGN
+539,2018,ADFG,Sockeye,18GHC29S,7/28/2018,CCP,30,Halibut Cove,CCP,Southern,24115,SGN
+540,2018,ADFG,Sockeye,18GBT30S,8/1/2018,CCP,31,Kasitsna,CCP,Southern,24106,SGN
+541,2018,ADFG,Sockeye,18GBT30S,8/1/2018,CCP,31,Kasitsna,CCP,Southern,24118,SGN
+542,2018,ADFG,Sockeye,18GHC31S,8/1/2018,CCP,31,Halibut Cove,CCP,Southern,24115,SGN
+543,2018,ADFG,Pink,18GBT32P,8/1/2018,CCP,31,Kasitsna,CCP,Southern,24106,SGN
+544,2018,ADFG,Pink,18GBT32P,8/1/2018,CCP,31,Kasitsna,CCP,Southern,24118,SGN
+545,2018,ADFG,Pink,18GSL33P,8/1/2018,CCP,31,Seldovia,CCP,Southern,24117,SGN
+546,2018,ADFG,Pink,18CPTpinks,6/18/2018,CCP,25,Kasitsna,CCP,Southern,24106,SGN
+547,2018,ADFG,Pink,18CPTpinks,6/18/2018,CCP,25,Kasitsna,CCP,Southern,24118,SGN
+548,2018,ADFG,Pink,18CPTpinks,6/23/2018,CCP,25,Barabara Point,CCP,Southern,24118,SGN
+549,2018,ADFG,Pink,18CPTpinks,6/27/2018,CCP,26,Kasitsna,CCP,Southern,24106,SGN
+550,2018,ADFG,Pink,18CPTpinks,6/27/2018,CCP,26,Kasitsna,CCP,Southern,24118,SGN
+551,2018,ADFG,Pink,18CPTpinks,6/28/2018,CCP,26,Kasitsna,CCP,Southern,24106,SGN
+552,2018,ADFG,Pink,18CPTpinks,6/28/2018,CCP,26,Kasitsna,CCP,Southern,24118,SGN
+553,2018,ADFG,Pink,18CPTpinks,8/10/2018,CCP,32,Kasitsna,CCP,Southern,24106,SGN
+554,2018,ADFG,Pink,18CPTpinks,8/10/2018,CCP,32,Kasitsna,CCP,Southern,24118,SGN
