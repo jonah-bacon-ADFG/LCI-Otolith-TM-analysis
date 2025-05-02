@@ -1,0 +1,113 @@
+---
+title: "LCI Hatchery TM Analysis - Figures"
+author: "Jonah Bacon"
+format: html
+editor: visual
+---
+
+# Load Data & Libraries
+
+```{r}
+load("LCI_HatcheryTM_analysis-data.RData")
+
+library(tidyverse)
+library(extrafont)
+library(showtext)
+
+theme_set(theme_bw(base_size=12) + 
+          theme(panel.grid.major = element_blank(),
+                panel.grid.minor = element_blank(),
+                text = element_text(family = "serif")))
+```
+
+## Figures
+
+### Figure 1
+
+```{r}
+C.hat_Sh.statwk <- C.hat_hi %>% 
+  group_by(Year,StatWk,Gear,Species,Source,HatcheryArea) %>% 
+  summarize(C.hat_Sh = sum(C.hat_hi))
+           
+unsampled.N_i.statwk <- sample.o_hi %>%
+  full_join(sample.n_i,
+            by = join_by(Year,Gear,Species,Source,StatArea)) %>%
+  full_join(harvest.N_i,
+            by = join_by(Year,Gear,Species,Source,StatArea)) %>%
+  filter(is.na(HatcheryArea)) %>% # Selecting instances where HatcheryArea = NA, aka when a stratum had commercial harvest occur but no sampling occurred
+  select(-c(HatcheryArea,o_hi,n_i))
+
+unsampled.C.hat_Uh.statwk <- C.hat_hi %>% 
+  group_by(Year,StatWk,Gear,Species,Source,HatcheryArea) %>% 
+  summarise(C.hat_hj = sum(C.hat_hi), N_j = sum(N_i),ProportionMarked = C.hat_hj/N_j)
+
+C.hat_Uh.statwk <- unsampled.N_i.statwk %>% 
+  left_join(unsampled.C.hat_Uh.statwk,
+            by = join_by(Year,StatWk,Gear,Species,Source),
+            relationship = "many-to-many") %>% 
+  group_by(Year,StatWk,Gear,Species,Source,HatcheryArea) %>% 
+  summarise(C.hat_Uh = sum(N_i)*unique(ProportionMarked)) %>%
+  filter(!is.na(HatcheryArea))
+
+unsampled.stratum.statwk <- unsampled.N_i.statwk %>% 
+  left_join(unsampled.C.hat_Uh.statwk,
+            by = join_by(Year,StatWk,Gear,Species,Source),
+            relationship = "many-to-many") %>% 
+  group_by(Year,StatWk,Gear,Species,Source,HatcheryArea) %>% 
+  summarise(C.hat_Uh = sum(N_i)*unique(ProportionMarked)) %>% 
+  filter(is.na(HatcheryArea)) %>% 
+  select(Year,StatWk,Gear,Species,Source) %>% 
+  unite("ID",c(Year,StatWk,Gear,Species,Source), sep = "_")
+
+C.hat_h.statwk <- C.hat_Sh.statwk %>% 
+  full_join(C.hat_Uh.statwk,
+            by = join_by(Year,StatWk,Gear,Species,Source,HatcheryArea)) %>% 
+  replace_na(list(C.hat_Uh = 0, C.hat_Uh_VAR = 0)) %>% 
+  mutate(C.hat_h = C.hat_Sh + C.hat_Uh)
+
+C.hat_H.HATCHAREA.statwk <- C.hat_h.statwk %>% 
+  group_by(Species,StatWk,Gear,Year,Source,HatcheryArea) %>% 
+  summarise(C.hat_H = sum(C.hat_h))
+
+C.hat_H.TOTAL.statwk <- C.hat_h.statwk %>% 
+  group_by(Species,StatWk,Gear,Year,Source) %>% 
+  summarise(C.hat_H = sum(C.hat_h))
+
+catch.comparison.TOTAL.statwk <- harvest.N_i %>% 
+  unite("ID",c(Year,StatWk,Gear,Species,Source), sep = "_") %>% 
+  filter(!(ID %in% unsampled.stratum.statwk$ID)) %>% 
+  separate(ID, into = c("Year","StatWk","Gear","Species","Source"), sep = "_") %>% 
+  group_by(Species,StatWk,Gear,Year,Source) %>% 
+  summarize(Catch = sum(N_i)) %>% 
+  left_join(C.hat_H.TOTAL.statwk,
+            by = join_by(Species,StatWk,Gear,Year,Source)) %>% 
+  mutate(HatcheryProportion = C.hat_H/Catch,
+         WildProportion = 1 - HatcheryProportion,
+         Wild = WildProportion*Catch)
+
+catch.comparison.HATCHAREA.statwk <- harvest.N_i %>% 
+  unite("ID",c(Year,StatWk,Gear,Species,Source), sep = "_") %>% 
+  filter(!(ID %in% unsampled.stratum.statwk$ID)) %>% 
+  separate(ID, into = c("Year","StatWk","Gear","Species","Source"), sep = "_") %>% 
+  group_by(Species,StatWk,Gear,Year,Source) %>% 
+  summarize(Catch = sum(N_i)) %>% 
+  left_join(C.hat_H.HATCHAREA.statwk,
+            by = join_by(Species,StatWk,Gear,Year,Source)) %>% 
+  pivot_wider(names_from = HatcheryArea, values_from = C.hat_H) %>% 
+  mutate("Not Marked" = Catch - LCI - PWS - KOD - Other) %>% 
+  pivot_longer(cols = c("Not Marked",LCI,PWS,KOD,Other), names_to = "Legend", values_to = "Harvest") %>% 
+  mutate(Legend = factor(Legend, levels = c("Other","KOD","PWS","LCI","Not Marked")))
+
+catch.comparison.HATCHAREA.statwk %>% 
+  filter(Species == "Sockeye" & Gear == "SGN" & Source == "CCP") %>% 
+  ggplot(aes(x = StatWk, y = Harvest)) +
+  geom_col(aes(fill = Legend)) +
+  ylab("Harvest") +
+  xlab("Week") +
+  scale_x_discrete(limits = factor(seq(22,33,1)), breaks = seq(22,33,1)) +
+  facet_wrap(facets = vars(Year), ncol = 2, scales = "free_x") +
+  theme(axis.title.x =  element_blank(), axis.title.y = element_blank(), 
+                   plot.title = element_text(size=8, hjust = 0.5),
+                   panel.grid.minor = element_blank(),panel.grid.major.x = element_blank())
+  
+```

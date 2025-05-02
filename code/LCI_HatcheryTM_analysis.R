@@ -42,6 +42,11 @@ pink.clean <- pink.marks %>%
   mutate(# StatArea = if_else(Gear == "SET GILLNET", "24100", StatArea),
          StatArea = ifelse(HomerSampleID == "18PSD45P",24107,StatArea), # Specific correction
          StatArea = ifelse(HomerSampleID == "19GSD086P",24106,StatArea), # Specific correction, don't need any longer?
+         HomerSampleID = ifelse(HomerSampleID == "19WBS108P","19GBT110P",HomerSampleID),
+         StatArea = ifelse(HomerSampleID == "19GBT110P",24118,StatArea), # Specific correction
+         StatArea = ifelse(HomerSampleID == "21GMX034P",24117,StatArea), # Specific correction
+         StatArea = ifelse(HomerSampleID == "21GMX023P",24118,StatArea), # Specific correction
+         StatArea = ifelse(HomerSampleID == "21GMX067P",24117,StatArea), # Specific correction
          Gear = if_else(Gear == "PURSE SEINE", "PS", Gear),
          Gear = if_else(Gear == "SET GILLNET", "SGN", Gear),
          Source = if_else(Source == "COMMERCIAL COM PROP", "CCP", Source),
@@ -66,7 +71,9 @@ reds.clean <- reds.marks %>%
          StatArea = ifelse(HomerSampleID == "18GPG06S",24130,StatArea),
          StatArea = ifelse(HomerSampleID == "18GPG03S",24130,StatArea),
          StatArea = ifelse(HomerSampleID == "18PSD06S",24190,StatArea),
-         StatArea = ifelse(HomerSampleID == "18PSD03S",24190,StatArea)) %>% 
+         StatArea = ifelse(HomerSampleID == "18PSD03S",24190,StatArea),
+         StatArea = ifelse(HomerSampleID == "19GBT109S",24118,StatArea),
+         StatArea = ifelse(HomerSampleID == "21GMX066S",24117,StatArea)) %>% 
   mutate(StatWeek = ifelse(HomerSampleID == "22GMX005S",25,StatWeek),
          Year = as.factor(Year),Gear = as.factor(Gear),StatArea = as.factor(StatArea),Source = as.factor(Source),Species = "Sockeye") %>% 
   rename(StatWk = StatWeek)
@@ -355,3 +362,4 @@ catch.comparison.TOTAL <- harvest.N_i %>%
             by = join_by(Species,Gear,Year,Source)) %>% 
   mutate(HatcheryProportion = C.hat_H/Catch)
 
+save.image(file = "code/LCI_HatcheryTM_analysis-data.RData")
