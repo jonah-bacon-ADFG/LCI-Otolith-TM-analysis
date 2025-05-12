@@ -3,92 +3,119 @@ library(tidyverse)
 library(openxlsx)
 library(scales)
 
+source("code/LCI_HatcheryTM_analysis.R")
+
 # Set Theme ---------------------------------------------------------------
 
 theme_set(theme_bw() + 
             theme(text = element_text(family = "serif"),
-                  plot.title = element_text(size = 12, hjust = 0.5),
-                  legend.title = element_text(size = 12),
-                  legend.text = element_text(size = 12),
-                  strip.text = element_text(size = 12),
-                  axis.title = element_text(size = 12),
-                  axis.text = element_text(size = 12),
-                  plot.caption = element_text(size = 12, lineheight = 1, hjust = -1),
-                  panel.grid.major.y = element_line(color = "gray75", linetype = 2),
-                  panel.grid.minor.y = element_line(color = "gray90", linetype = 2),
+                  plot.title = element_text(size = 11, hjust = 0.5),
+                  legend.title = element_text(size = 11),
+                  legend.text = element_text(size = 11),
+                  strip.text = element_text(size = 11),
+                  axis.title = element_text(size = 11),
+                  axis.text = element_text(size = 11),
+                  plot.caption = element_text(size = 11, lineheight = 1, hjust = -1),
+                  panel.grid.major.y = element_line(color = "gray90", linetype = 1, linewidth = 0.5),
+                  panel.grid.minor.y = element_blank(),
                   panel.grid.major.x = element_blank(),
                   panel.grid.minor.x = element_blank(),
                   strip.background = element_blank(),
                   legend.position = "inside",
                   legend.position.inside = c(0.8,0.15)))
 
+# catch.comparison.HATCHAREA.SW.unsampled <- harvest.N_i.SW %>% 
+#   unite("ID",c(Year,StatWk,Gear,Species,Source), sep = "_") %>% 
+#   filter(ID %in% unsampled.stratum.SW$ID) %>% 
+#   separate(ID, into = c("Year","StatWk","Gear","Species","Source"), sep = "_") %>% 
+#   group_by(Species,Gear,Year,StatWk,Source) %>% 
+#   summarize(Catch = sum(N_i)) %>% 
+#   filter(Source != "HCR") %>% 
+#   left_join(select(catch.comparison.HATCHAREA,-Catch),
+#             by = join_by(Species,Gear,Year,Source),
+#             relationship = "many-to-many") %>% 
+#   mutate(Condition = "Unsampled")
+
+figures.df <- catch.comparison.HATCHAREA.SW %>% 
+  # mutate(Condition = "Sampled") %>% 
+  # full_join(catch.comparison.HATCHAREA.SW.unsampled,
+  #           by = join_by(Species, Gear, Year, StatWk, Source, Catch, HatcheryArea, C.hat_H, C.hat_H_VAR, C.hat_H_se, lower95CI,
+  #                        upper95CI, HatcheryProportion, Condition)) %>% 
+  select(-c(C.hat_H,C.hat_H_VAR,C.hat_H_se,lower95CI,upper95CI)) %>%
+  pivot_wider(names_from = HatcheryArea, values_from = HatcheryProportion) %>% 
+  mutate("Not Marked" = 1 - (LCI + PWS + KOD + Other)) %>% 
+  pivot_longer(cols = c(LCI,PWS,KOD,Other,"Not Marked"), names_to = "HatcheryArea", values_to = "CatchProportion") %>% 
+  mutate(C.hat_H = round(Catch*CatchProportion,0),
+         HatcheryArea = as.factor(HatcheryArea)) %>% 
+  mutate(HatcheryArea = fct_relevel(HatcheryArea,c("Other","PWS","KOD","LCI","Not Marked")))
+
 # Figure 6 ----------------------------------------------------------------
 ## Sockeye CCP SGN
 
-catch.comparison.HATCHAREA.statwk %>% 
+fig6 <- figures.df %>% 
   filter(Species == "Sockeye" & Gear == "SGN" & Source == "CCP") %>% 
-  ggplot(aes(x = StatWk, y = Harvest)) +
-  geom_col(aes(fill = Legend), color = "black") +
-  ylab("Harvest") +
+  ggplot(aes(x = StatWk, y = C.hat_H/1000)) +
+  geom_col(aes(fill = HatcheryArea), color = "black") +
+  ylab("Harvest (thousands)") +
   xlab("Statistical Week") +
-  labs(title = "Sockeye CCP SGN", fill = "Mark Legend") +
-  scale_x_discrete(limits = factor(seq(22,33,1)), breaks = seq(22,33,1)) +
-  scale_y_continuous(limits = c(0,5000), breaks = seq(0,5000,1000), expand = c(0,0)) +
+  labs(title = "SGN Sockeye Salmon", fill = "Mark Legend") +
+  scale_x_discrete(limits = factor(seq(23,33,1)), breaks = seq(23,33,1)) +
+  scale_y_continuous(limits = c(0,5.3), breaks = seq(0,5,1), expand = c(0,0)) +
   scale_fill_grey(start = 0, end = 1) +
   facet_wrap(facets = vars(Year), ncol = 2, scales = "free_x")
 
-# ggsave("output/figures/fig6.png", width = 6.5, height = 8.2, units = "in")
+ggsave("output/figures/fig6.png", plot = fig6, dpi = "retina", width = 6.5, height = 8, units = "in")
 
 # Figure 7 ----------------------------------------------------------------
 ## Sockeye CCP PS
 
-catch.comparison.HATCHAREA.statwk %>% 
+fig7 <- figures.df %>% 
   filter(Species == "Sockeye" & Gear == "PS" & Source == "CCP") %>% 
-  ggplot(aes(x = StatWk, y = Harvest)) +
-  geom_col(aes(fill = Legend), color = "black") +
-  ylab("Harvest") +
+  ggplot(aes(x = StatWk, y = C.hat_H/1000)) +
+  geom_col(aes(fill = HatcheryArea), color = "black") +
+  ylab("Harvest (thousands)") +
   xlab("Statistical Week") +
-  labs(title = "Sockeye CCP PS", fill = "Mark Legend") +
-  scale_x_discrete(limits = factor(seq(25,36,1)), breaks = seq(25,36,1)) +
-  scale_y_continuous(limits = c(0,33000), breaks = seq(0,30000,5000), expand = c(0,0)) +
+  labs(title = "PS Sockeye Salmon", fill = "Mark Legend") +
+  scale_x_discrete(limits = factor(seq(25,32,1)), breaks = seq(25,32,1)) +
+  scale_y_continuous(limits = c(0,33), breaks = seq(0,30,5), expand = c(0,0)) +
   scale_fill_grey(start = 0, end = 1) +
   facet_wrap(facets = vars(Year), ncol = 2, scales = "free_x")
 
-# ggsave("output/figures/fig7.png", width = 6.5, height = 8.2, units = "in")
+# ggsave("output/figures/fig7.png", plot = fig7, dpi = "retina", width = 6.5, height = 8, units = "in")
 
 # Figure 8 ----------------------------------------------------------------
 ## Pink CCP SGN
 
-catch.comparison.HATCHAREA.statwk %>% 
+fig8 <- figures.df %>% 
   filter(Species == "Pink" & Gear == "SGN" & Source == "CCP") %>% 
-  ggplot(aes(x = StatWk, y = Harvest)) +
-  geom_col(aes(fill = Legend), color = "black") +
-  ylab("Harvest") +
+  ggplot(aes(x = StatWk, y = C.hat_H/1000)) +
+  geom_col(aes(fill = HatcheryArea), color = "black") +
+  ylab("Harvest (thousands)") +
   xlab("Statistical Week") +
-  labs(title = "Pink CCP SGN", fill = "Mark Legend") +
-  scale_x_discrete(limits = factor(seq(26,33,1)), breaks = seq(26,33,1)) +
-  scale_y_continuous(limits = c(0,15500), breaks = seq(0,15000,3000), expand = c(0,0)) +
+  labs(title = "SGN Pink Salmon", fill = "Mark Legend") +
+  scale_x_discrete(limits = factor(seq(27,33,1)), breaks = seq(27,33,1)) +
+  scale_y_continuous(limits = c(0,16), breaks = seq(0,15,3), expand = c(0,0)) +
   scale_fill_grey(start = 0, end = 1) +
   facet_wrap(facets = vars(Year), ncol = 2, scales = "free_x")
 
-# ggsave("output/figures/fig8.png", width = 6.5, height = 8.2, units = "in")
+# ggsave("output/figures/fig8.png", plot = fig8, dpi = "retina", width = 6.5, height = 8, units = "in")
 
 # Figure 9 ----------------------------------------------------------------
 ## Pink CCP PS
 
-catch.comparison.HATCHAREA.statwk %>% 
+fig9 <- figures.df %>% 
   filter(Species == "Pink" & Gear == "PS" & Source == "CCP") %>% 
-  ggplot(aes(x = StatWk, y = Harvest)) +
-  geom_col(aes(fill = Legend), color = "black") +
+  ggplot(aes(x = StatWk, y = C.hat_H/1000)) +
+  geom_col(aes(fill = HatcheryArea), color = "black") +
   ylab("Harvest") +
   xlab("Statistical Week") +
-  labs(title = "Pink CCP PS", fill = "Mark Legend") +
+  labs(title = "PS Pink Salmon", fill = "Mark Legend") +
   scale_x_discrete(limits = factor(seq(27,36,1)), breaks = seq(27,36,1)) +
-  scale_y_continuous(limits = c(0,150000), breaks = seq(0,150000,25000), expand = c(0,0)) +
+  scale_y_continuous(limits = c(0,150), breaks = seq(0,150,25), expand = c(0,0)) +
   scale_fill_grey(start = 0, end = 1) +
   facet_wrap(facets = vars(Year), ncol = 2, scales = "free_x")
 
-# ggsave("output/figures/fig9.png", width = 6.5, height = 8.2, units = "in")
+# ggsave("output/figures/fig9.png", plot = fig9, dpi = "retina", width = 6.5, height = 8, units = "in")
 
 # Table 2 -----------------------------------------------------------------
 
@@ -250,7 +277,8 @@ reds.C.hat_hi <- reds.sample.o_hi %>%
   full_join(reds.sample.n_i,
             by = join_by(Year,Gear,Source,StatArea)) %>% 
   full_join(reds.harvest.N_i,
-            by = join_by(Year,Gear,Source,StatArea)) %>% 
+            by = join_by(Year,Gear,Source,StatArea),
+            relationship = "many-to-many") %>% 
   filter(!is.na(Hatchery)) %>%      # Removing instances where Hatchery = NA, aka when a stratum had commercial harvest occur but no sampling occurred
   mutate(ProportionMarked = round(MarkedOtoliths/SampledOtoliths, 3), # Calculate hatchery proportion of sample
          C.hat_hi = ProportionMarked*CommercialHarvest,# EQUATION 1: Multiply hatchery proportion by the total commercial harvest for estimate hatchery proportion in commercial catch
@@ -269,7 +297,8 @@ reds.unsampled.N_i <- reds.sample.o_hi %>%
   full_join(reds.sample.n_i,
             by = join_by(Year,Gear,Source,StatArea)) %>%
   full_join(reds.harvest.N_i,
-            by = join_by(Year,Gear,Source,StatArea)) %>%
+            by = join_by(Year,Gear,Source,StatArea),
+            relationship = "many-to-many") %>%
   filter(is.na(Hatchery)) %>% # Selecting instances where Hatchery = NA, aka when a stratum had commercial harvest occur but no sampling occurred
   mutate(N_i = CommercialHarvest) %>% 
   select(-c(Hatchery,MarkedOtoliths,SampledOtoliths,CommercialHarvest))
@@ -338,7 +367,8 @@ pink.C.hat_hi <- pink.sample.o_hi %>%
   full_join(pink.sample.n_i,
             by = join_by(Year,Gear,Source,StatArea)) %>% 
   full_join(pink.harvest.N_i,
-            by = join_by(Year,Gear,Source,StatArea)) %>% 
+            by = join_by(Year,Gear,Source,StatArea),
+            relationship = "many-to-many") %>% 
   filter(!is.na(Hatchery)) %>%      # Removing instances where Hatchery = NA, aka when a stratum had commercial harvest occur but no sampling occurred
   mutate(ProportionMarked = round(MarkedOtoliths/SampledOtoliths, 3), # Calculate hatchery proportion of sample
          C.hat_hi = ProportionMarked*CommercialHarvest,# EQUATION 1: Multiply hatchery proportion by the total commercial harvest for estimate hatchery proportion in commercial catch
@@ -357,7 +387,8 @@ pink.unsampled.N_i <- pink.sample.o_hi %>%
   full_join(pink.sample.n_i,
             by = join_by(Year,Gear,Source,StatArea)) %>%
   full_join(pink.harvest.N_i,
-            by = join_by(Year,Gear,Source,StatArea)) %>%
+            by = join_by(Year,Gear,Source,StatArea),
+            relationship = "many-to-many") %>%
   filter(is.na(Hatchery)) %>% # Selecting instances where Hatchery = NA, aka when a stratum had commercial harvest occur but no sampling occurred
   mutate(N_i = CommercialHarvest) %>% 
   select(-c(Hatchery,MarkedOtoliths,SampledOtoliths,CommercialHarvest))

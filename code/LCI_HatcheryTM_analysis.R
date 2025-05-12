@@ -262,7 +262,8 @@ C.hat_hi <- sample.o_hi %>%
   full_join(sample.n_i,
             by = join_by(Year,Gear,Species,Source,StatArea)) %>% 
   full_join(harvest.N_i,
-            by = join_by(Year,Gear,Species,Source,StatArea)) %>% 
+            by = join_by(Year,Gear,Species,Source,StatArea),
+            relationship = "many-to-many") %>% 
   filter(!is.na(HatcheryArea)) %>% # Removing instances where HatcheryArea = NA, aka when a stratum had commercial harvest occur but no sampling occurred
   mutate(ProportionMarked = o_hi/n_i, # Calculate hatchery proportion of sample
          C.hat_hi = ProportionMarked*N_i,# EQUATION 1: Multiply hatchery proportion by the total commercial harvest for estimate hatchery proportion in commercial catch
@@ -281,7 +282,8 @@ unsampled.N_i <- sample.o_hi %>%
   full_join(sample.n_i,
             by = join_by(Year,Gear,Species,Source,StatArea)) %>%
   full_join(harvest.N_i,
-            by = join_by(Year,Gear,Species,Source,StatArea)) %>%
+            by = join_by(Year,Gear,Species,Source,StatArea),
+            relationship = "many-to-many") %>%
   filter(is.na(HatcheryArea)) %>% # Selecting instances where HatcheryArea = NA, aka when a stratum had commercial harvest occur but no sampling occurred
   select(-c(HatcheryArea,o_hi,n_i))
 
@@ -362,4 +364,137 @@ catch.comparison.TOTAL <- harvest.N_i %>%
             by = join_by(Species,Gear,Year,Source)) %>% 
   mutate(HatcheryProportion = C.hat_H/Catch)
 
-save.image(file = "code/LCI_HatcheryTM_analysis-data.RData")
+# save.image(file = "code/LCI_HatcheryTM_analysis-data.RData")
+
+
+# 7 - Estimate of C.hat~hi~.SW ----
+
+# Create table of # of otoliths from hatchery-area (h) in sample from a given stratum (n_i):
+sample.o_hi.SW <- otolith.TM.data %>% 
+  pivot_longer(cols = c("LCI","PWS","KOD","Other"), names_to = "HatcheryArea", values_to = "MarkedOtoliths") %>% # Pivot table to LONG format, with one count of the # of MarkedOtoliths per Strata*HatcheryArea combination
+  rename(HomerID = HomerSampleID) %>% 
+  mutate(HatcheryArea = as.factor(HatcheryArea),
+         StatWk = as.factor(StatWk)) %>% 
+  group_by(Year,StatWk,Gear,Species,Source,StatArea,HatcheryArea) %>% 
+  summarise(o_hi = sum(MarkedOtoliths))
+
+# Create table of total # of otoliths sampled from a given stratum (n_i):
+sample.n_i.SW <- otolith.TM.data %>% 
+  group_by(Year,StatWk,Gear,Species,Source,StatArea) %>% # Group into stratum (i)
+  summarise(n_i = sum(NotMarked) + sum(Marked)) %>% # SampledOtoliths = total # of otoliths sampled
+  mutate(StatWk = as.factor(StatWk))
+
+# Create table of total # of fish commercially harvested in stratum (i):
+harvest.N_i.SW <- sampled.harvest.CLEAN %>%
+  group_by(Year,StatWk,Gear,Species,Source,StatArea) %>% 
+  summarise(N_i = sum(unique(CommercialHarvest)))
+
+# Create a table of the otolith-derived estimated of the contribution of hatchery-area (h) to period-gear-district stratum (i):
+C.hat_hi.SW <- sample.o_hi.SW %>% 
+  full_join(sample.n_i.SW,
+            by = join_by(Year,StatWk,Gear,Species,Source,StatArea)) %>% 
+  full_join(harvest.N_i.SW,
+            by = join_by(Year,StatWk,Gear,Species,Source,StatArea),
+            relationship = "many-to-many") %>% 
+  filter(!is.na(HatcheryArea)) %>% # Removing instances where HatcheryArea = NA, aka when a stratum had commercial harvest occur but no sampling occurred
+  mutate(ProportionMarked = o_hi/n_i, # Calculate hatchery proportion of sample
+         C.hat_hi = ProportionMarked*N_i,# EQUATION 1: Multiply hatchery proportion by the total commercial harvest for estimate hatchery proportion in commercial catch
+         C.hat_hi_VAR = (N_i^2)*(1/(n_i-1))*(o_hi/n_i)*(1 - (o_hi/n_i))) # EQUATION 2: Variance estimate of the hatchery-derived commercial harvest contribution
+
+
+# 8 - Estimate of C.hat~Sh~.SW ----
+
+C.hat_Sh.SW <- C.hat_hi.SW %>% 
+  group_by(Year,StatWk,Gear,Species,Source,HatcheryArea) %>% 
+  summarize(C.hat_Sh = sum(C.hat_hi), # EQUATION 3: Estimate of contribution of hatchery-area (h) to all sampled harvests within a StatWk, combined across all sampled StatArea's.
+            C.hat_Sh_VAR = sum(C.hat_hi_VAR)) # EQUATION 4: Variance estimate of C.hat_Sh
+
+# 9 - Estimate of C.hat~Uh~.SW ----
+
+unsampled.N_i.SW <- sample.o_hi.SW %>%
+  full_join(sample.n_i.SW,
+            by = join_by(Year,StatWk,Gear,Species,Source,StatArea)) %>%
+  full_join(harvest.N_i.SW,
+            by = join_by(Year,StatWk,Gear,Species,Source,StatArea),
+            relationship = "many-to-many") %>%
+  filter(is.na(HatcheryArea)) %>% # Selecting instances where HatcheryArea = NA, aka when a stratum had commercial harvest occur but no sampling occurred
+  select(-c(HatcheryArea,o_hi,n_i))
+
+unsampled.C.hat_Uh.SW <- C.hat_hi.SW %>% 
+  group_by(Year,StatWk,Gear,Species,Source,HatcheryArea) %>% 
+  summarise(C.hat_hj = sum(C.hat_hi), N_j = sum(N_i),ProportionMarked = C.hat_hj/N_j)
+
+C.hat_Uh.SW <- unsampled.N_i.SW %>% 
+  left_join(unsampled.C.hat_Uh.SW,
+            by = join_by(Year,StatWk,Gear,Species,Source),
+            relationship = "many-to-many") %>% 
+  group_by(Year,StatWk,Gear,Species,Source,HatcheryArea) %>% 
+  summarise(C.hat_Uh = sum(N_i)*unique(ProportionMarked), # EQUATION 5: Estimate the contribution of hatchery-area (h) to unsampled StatArea's
+            C.hat_Uh_VAR = as.integer(sum(N_i^2 * (1/(sum(N_j)-1)) * (sum(C.hat_hj)/sum(N_j)) * (1 - (sum(C.hat_hj)/sum(N_j)))   ))) %>% # EQUATION 6: Variance estimate of C.hat_Uh
+  filter(!is.na(HatcheryArea))
+
+# NA's occur in the above data frame (C.hat_Uh) when there is commercial harvest from a stratum (Year,Gear,Species,Fishery) but no fish were sampled in that stratum (across any StatArea's) from which to estimate hatchery proportion...
+# These unsampled stratum observations are removed from the C.hat_Uh data frame because there is no way to estimate the hatchery contribution within...
+
+# And these unsampled stratum observations are subsetted to their own data frame: 
+unsampled.stratum.SW <- unsampled.N_i.SW %>% 
+  left_join(unsampled.C.hat_Uh.SW,
+            by = join_by(Year,StatWk,Gear,Species,Source),
+            relationship = "many-to-many") %>% 
+  group_by(Year,StatWk,Gear,Species,Source,HatcheryArea) %>% 
+  summarise(C.hat_Uh = sum(N_i)*unique(ProportionMarked),
+            C.hat_Uh_VAR = sum(N_i^2 * (1/(sum(N_j)-1)) * (sum(C.hat_hj)/sum(N_j)) * (1 - (sum(C.hat_hj)/sum(N_j)))   )) %>% 
+  filter(is.na(HatcheryArea)) %>% 
+  select(Year,StatWk,Gear,Species,Source) %>% 
+  unite("ID",c(Year,StatWk,Gear,Species,Source), sep = "_")
+
+# 10 - Estimate of C.hat~h~.SW ----
+
+C.hat_h.SW <- C.hat_Sh.SW %>% 
+  full_join(C.hat_Uh.SW,
+            by = join_by(Year,StatWk,Gear,Species,Source,HatcheryArea)) %>% 
+  replace_na(list(C.hat_Uh = 0, C.hat_Uh_VAR = 0)) %>% 
+  mutate(C.hat_h = C.hat_Sh + C.hat_Uh, # EQUATION 7: Estimate of contribution of hatchery-area (h) to all strata
+         C.hat_h_VAR = C.hat_Sh_VAR + C.hat_Uh_VAR) # EQUATION 8: Variance estimate of C.hat_h
+
+# 11 - Estimate of C.hat~H~ ----
+
+C.hat_H.HATCHAREA.SW <- C.hat_h.SW %>% 
+  group_by(Species,Gear,Year,StatWk,Source,HatcheryArea) %>% 
+  summarise(C.hat_H = sum(C.hat_h),
+            C.hat_H_VAR = sum(C.hat_h_VAR)) %>% 
+  mutate(C.hat_H_se = as.integer(sqrt(C.hat_H_VAR)),
+         lower95CI = C.hat_H - 1.96*C.hat_H_se,
+         upper95CI = C.hat_H + 1.96*C.hat_H_se)
+
+C.hat_H.TOTAL.SW <- C.hat_h.SW %>% 
+  group_by(Species,Gear,Year,StatWk,Source) %>% 
+  summarise(C.hat_H = sum(C.hat_h),
+            C.hat_H_VAR = sum(C.hat_h_VAR)) %>% 
+  mutate(C.hat_H_se = as.integer(sqrt(C.hat_H_VAR)),
+         lower95CI = C.hat_H - 1.96*C.hat_H_se,
+         upper95CI = C.hat_H + 1.96*C.hat_H_se)
+
+# 12 - Catch Proportion Comparison ----
+
+catch.comparison.HATCHAREA.SW <- harvest.N_i.SW %>% 
+  unite("ID",c(Year,StatWk,Gear,Species,Source), sep = "_") %>% 
+  filter(!(ID %in% unsampled.stratum.SW$ID)) %>% 
+  separate(ID, into = c("Year","StatWk","Gear","Species","Source"), sep = "_") %>% 
+  group_by(Species,Gear,Year,StatWk,Source) %>% 
+  summarize(Catch = sum(N_i)) %>% 
+  left_join(C.hat_H.HATCHAREA.SW,
+            by = join_by(Species,Gear,Year,StatWk,Source)) %>% 
+  mutate(HatcheryProportion = C.hat_H/Catch)
+
+catch.comparison.TOTAL.SW <- harvest.N_i.SW %>% 
+  unite("ID",c(Year,StatWk,Gear,Species,Source), sep = "_") %>% 
+  filter(!(ID %in% unsampled.stratum.SW$ID)) %>% 
+  separate(ID, into = c("Year","StatWk","Gear","Species","Source"), sep = "_") %>% 
+  group_by(Species,Gear,Year,StatWk,Source) %>% 
+  summarize(Catch = sum(N_i)) %>% 
+  left_join(C.hat_H.TOTAL.SW,
+            by = join_by(Species,Gear,Year,StatWk,Source)) %>% 
+  mutate(HatcheryProportion = C.hat_H/Catch)
+
+# save.image(file = "code/LCI_HatcheryTM_analysis-data.RData")
