@@ -64,7 +64,7 @@ fig6 <- figures.df %>%
   scale_fill_grey(start = 0, end = 1) +
   facet_wrap(facets = vars(Year), ncol = 2, scales = "free_x")
 
-ggsave("output/figures/fig6.png", plot = fig6, dpi = "retina", width = 6.5, height = 8, units = "in")
+# ggsave("output/figures/fig6.png", plot = fig6, dpi = "retina", width = 6.5, height = 8, units = "in")
 
 # Figure 7 ----------------------------------------------------------------
 ## Sockeye CCP PS
@@ -98,6 +98,7 @@ fig8 <- figures.df %>%
   scale_fill_grey(start = 0, end = 1) +
   facet_wrap(facets = vars(Year), ncol = 2, scales = "free_x")
 
+
 # ggsave("output/figures/fig8.png", plot = fig8, dpi = "retina", width = 6.5, height = 8, units = "in")
 
 # Figure 9 ----------------------------------------------------------------
@@ -107,7 +108,7 @@ fig9 <- figures.df %>%
   filter(Species == "Pink" & Gear == "PS" & Source == "CCP") %>% 
   ggplot(aes(x = StatWk, y = C.hat_H/1000)) +
   geom_col(aes(fill = HatcheryArea), color = "black") +
-  ylab("Harvest") +
+  ylab("Harvest (thousands)") +
   xlab("Statistical Week") +
   labs(title = "PS Pink Salmon", fill = "Mark Legend") +
   scale_x_discrete(limits = factor(seq(27,36,1)), breaks = seq(27,36,1)) +
@@ -493,11 +494,12 @@ appendixD6 <- appendixD %>%
 # Appendix E --------------------------------------------------------------
 
 appendixE <- otolith.TM.data %>% 
-  group_by(Year,StatWk,Gear,Species,Source,StatArea) %>% 
+  group_by(Year,Species,Source,Gear,StatArea,StatWk) %>% 
   summarise(Preps = sum(Preps),Marked = sum(Marked),NotMarked = sum(NotMarked),
             LCI = sum(LCI),PWS = sum(PWS),KOD = sum(KOD),Other = sum(Other)) %>% 
   mutate(StatWk = as.factor(StatWk)) %>% 
-  left_join(harvest.N_i) %>% 
+  left_join(harvest.N_i.SW,
+            by = join_by(Year,Species,Source,Gear,StatArea,StatWk)) %>% 
   mutate(n_i = Marked + NotMarked,
          Proportion_LCI = round(LCI/(Marked+NotMarked),3),
          Contribution_LCI = round(Proportion_LCI*N_i,0),
@@ -589,6 +591,7 @@ appendixI <- C.hat_H.TOTAL %>%
   select(Species,Year,Source,Gear,C.hat_H,C.hat_H_se,lower95CI,upper95CI) %>% 
   arrange(desc(Gear)) %>% arrange(Source) %>% arrange(Year) %>% arrange(Species)
 
+
 # Save tables as Excel workbook -------------------------------------------
 
 sheets <- list(
@@ -620,4 +623,3 @@ sheets <- list(
 )
 
 # write.xlsx(sheets, "output/tables/report_tables_RAW.xlsx")
-

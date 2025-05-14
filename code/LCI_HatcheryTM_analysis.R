@@ -1,7 +1,7 @@
 # ---
 #   title: "Analysis of LCI Thermal Mark Hatchery Otoliths, 2018-2022"
 #   author: "Jonah Bacon"
-#   date: 23 April 2025
+#   date: 14 May 2025
 # ---
   
 # This code analyzes data collected from 2018-2022 as part of the Thermal Mark Hatchery Salmon Otoliths in Lower Cook Inlet project 
