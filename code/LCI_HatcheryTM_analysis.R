@@ -254,7 +254,7 @@ sample.n_i <- otolith.TM.data %>%
 
 # Create table of total # of fish commercially harvested in stratum (i):
 harvest.N_i <- sampled.harvest.CLEAN %>%
-  group_by(Year,StatWk,Gear,Species,Source,StatArea) %>% 
+  group_by(Year,Gear,Species,Source,StatArea) %>% 
   summarise(N_i = sum(unique(CommercialHarvest)))
 
 # Create a table of the otolith-derived estimated of the contribution of hatchery-area (h) to period-gear-district stratum (i):
@@ -262,8 +262,7 @@ C.hat_hi <- sample.o_hi %>%
   full_join(sample.n_i,
             by = join_by(Year,Gear,Species,Source,StatArea)) %>% 
   full_join(harvest.N_i,
-            by = join_by(Year,Gear,Species,Source,StatArea),
-            relationship = "many-to-many") %>% 
+            by = join_by(Year,Gear,Species,Source,StatArea)) %>% 
   filter(!is.na(HatcheryArea)) %>% # Removing instances where HatcheryArea = NA, aka when a stratum had commercial harvest occur but no sampling occurred
   mutate(ProportionMarked = o_hi/n_i, # Calculate hatchery proportion of sample
          C.hat_hi = ProportionMarked*N_i,# EQUATION 1: Multiply hatchery proportion by the total commercial harvest for estimate hatchery proportion in commercial catch
@@ -282,8 +281,7 @@ unsampled.N_i <- sample.o_hi %>%
   full_join(sample.n_i,
             by = join_by(Year,Gear,Species,Source,StatArea)) %>%
   full_join(harvest.N_i,
-            by = join_by(Year,Gear,Species,Source,StatArea),
-            relationship = "many-to-many") %>%
+            by = join_by(Year,Gear,Species,Source,StatArea)) %>%
   filter(is.na(HatcheryArea)) %>% # Selecting instances where HatcheryArea = NA, aka when a stratum had commercial harvest occur but no sampling occurred
   select(-c(HatcheryArea,o_hi,n_i))
 
@@ -308,11 +306,8 @@ unsampled.stratum <- unsampled.N_i %>%
   left_join(unsampled.C.hat_Uh,
             by = join_by(Year,Gear,Species,Source),
             relationship = "many-to-many") %>% 
-  group_by(Year,Gear,Species,Source,HatcheryArea) %>% 
-  summarise(C.hat_Uh = sum(N_i)*unique(ProportionMarked),
-            C.hat_Uh_VAR = sum(N_i^2 * (1/(sum(N_j)-1)) * (sum(C.hat_hj)/sum(N_j)) * (1 - (sum(C.hat_hj)/sum(N_j)))   )) %>% 
   filter(is.na(HatcheryArea)) %>% 
-  select(Year,Gear,Species,Source) %>% 
+  select(Year,Gear,Species,Source,StatArea) %>%
   unite("ID",c(Year,Gear,Species,Source), sep = "_")
 
 # 4 - Estimate of C.hat~h~ ----
