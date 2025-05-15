@@ -37,16 +37,16 @@ pink.clean <- pink.marks %>%
   select(-c(Agency,FisheryName,Species,SubDistrict,AStreamCode,Stock,Harvest,SampleDate,SurveySite)) %>% 
   separate(StatArea, into = c("StatArea","Extra"), sep = 5) %>% 
   mutate(StatArea = as.integer(StatArea)) %>% 
-  filter(StatArea > 10000) %>% 
+  # filter(StatArea > 10000) %>% 
   select(-Extra) %>% 
-  mutate(# StatArea = if_else(Gear == "SET GILLNET", "24100", StatArea),
+  mutate(StatArea = if_else(Gear == "SET GILLNET", 24100, StatArea),
          StatArea = ifelse(HomerSampleID == "18PSD45P",24107,StatArea), # Specific correction
-         StatArea = ifelse(HomerSampleID == "19GSD086P",24106,StatArea), # Specific correction, don't need any longer?
+         # StatArea = ifelse(HomerSampleID == "19GSD086P",24106,StatArea), # Specific correction, don't need any longer?
          HomerSampleID = ifelse(HomerSampleID == "19WBS108P","19GBT110P",HomerSampleID),
-         StatArea = ifelse(HomerSampleID == "19GBT110P",24118,StatArea), # Specific correction
-         StatArea = ifelse(HomerSampleID == "21GMX034P",24117,StatArea), # Specific correction
-         StatArea = ifelse(HomerSampleID == "21GMX023P",24118,StatArea), # Specific correction
-         StatArea = ifelse(HomerSampleID == "21GMX067P",24117,StatArea), # Specific correction
+         # StatArea = ifelse(HomerSampleID == "19GBT110P",24118,StatArea), # Specific correction
+         # StatArea = ifelse(HomerSampleID == "21GMX034P",24117,StatArea), # Specific correction
+         # StatArea = ifelse(HomerSampleID == "21GMX023P",24118,StatArea), # Specific correction
+         # StatArea = ifelse(HomerSampleID == "21GMX067P",24117,StatArea), # Specific correction
          Gear = if_else(Gear == "PURSE SEINE", "PS", Gear),
          Gear = if_else(Gear == "SET GILLNET", "SGN", Gear),
          Source = if_else(Source == "COMMERCIAL COM PROP", "CCP", Source),
@@ -59,21 +59,20 @@ reds.clean <- reds.marks %>%
   select(-c(Agency,FisheryName,Species,SubDistrict,AStreamCode,Stock,Harvest,SampleDate,SurveySite)) %>% 
   separate(StatArea, into = c("StatArea","Extra"), sep = 5) %>% 
   select(-Extra) %>% 
-  mutate(Gear = if_else(Gear == "PURSE SEINE", "PS", Gear),
+  mutate(StatArea = if_else(Gear == "SET GILLNET", "24100", StatArea),
+         Gear = if_else(Gear == "PURSE SEINE", "PS", Gear),
          Gear = if_else(Gear == "SET GILLNET", "SGN", Gear),
          Source = if_else(Source == "COMMERCIAL COM PROP", "CCP", Source),
          Source = if_else(Source == "COST RECOVERY", "HCR", Source),
          StatArea = ifelse(StatArea == "241-1",24118,StatArea),
          StatArea = ifelse(HomerSampleID == "18PSD06S",24190,StatArea),
-         StatArea = ifelse(HomerSampleID == "18PSD03S",24190,StatArea),
-         StatArea = ifelse(HomerSampleID == "18GHC10S",24115,StatArea),
-         StatArea = ifelse(HomerSampleID == "18GPG11S",24130,StatArea),
-         StatArea = ifelse(HomerSampleID == "18GPG06S",24130,StatArea),
-         StatArea = ifelse(HomerSampleID == "18GPG03S",24130,StatArea),
-         StatArea = ifelse(HomerSampleID == "18PSD06S",24190,StatArea),
-         StatArea = ifelse(HomerSampleID == "18PSD03S",24190,StatArea),
-         StatArea = ifelse(HomerSampleID == "19GBT109S",24118,StatArea),
-         StatArea = ifelse(HomerSampleID == "21GMX066S",24117,StatArea)) %>% 
+         # StatArea = ifelse(HomerSampleID == "18GPG06S",24130,StatArea),
+         # StatArea = ifelse(HomerSampleID == "18GHC10S",24115,StatArea),
+         # StatArea = ifelse(HomerSampleID == "18GPG11S",24130,StatArea),
+         # StatArea = ifelse(HomerSampleID == "18GPG03S",24130,StatArea),
+         # StatArea = ifelse(HomerSampleID == "19GBT109S",24118,StatArea),
+         # StatArea = ifelse(HomerSampleID == "21GMX066S",24117,StatArea),
+         StatArea = ifelse(HomerSampleID == "18PSD03S",24190,StatArea)) %>% 
   mutate(StatWeek = ifelse(HomerSampleID == "22GMX005S",25,StatWeek),
          Year = as.factor(Year),Gear = as.factor(Gear),StatArea = as.factor(StatArea),Source = as.factor(Source),Species = "Sockeye") %>% 
   rename(StatWk = StatWeek)
@@ -93,7 +92,8 @@ harvest.df <- harvest %>%
          Species.Name = if_else(Species.Name == "salmon, sockeye", "Sockeye", Species.Name),
          Species.Name = if_else(Species.Name == "salmon, pink", "Pink", Species.Name),
          Harvest.Name = if_else(Harvest.Name == "State managed fishery", "CCP", Harvest.Name),
-         Harvest.Name = if_else(Harvest.Name == "Private Hatchery - Fishing", "HCR", Harvest.Name)) %>% 
+         Harvest.Name = if_else(Harvest.Name == "Private Hatchery - Fishing", "HCR", Harvest.Name),
+         Stat.Area = ifelse(Gear.Name == "SGN",24100,Stat.Area)) %>% 
   rename(Year = DOL.Year,StatWk = Stat.Week,Gear = Gear.Name,Species = Species.Name, StatArea = Stat.Area,Source = Harvest.Name) %>% 
   group_by(Year,StatWk,Gear,Species,StatArea,Source)  %>% 
   summarize(CommercialHarvest = sum(Number.Of.Animals..sum.)) %>% 
@@ -102,7 +102,8 @@ harvest.df <- harvest %>%
 sample.df <- sample %>% 
   filter(HarvType %in% c("CCP","HCR")) %>% 
   select(-c(ID,Agency,SampleDate,SampleType,HarvLoc,District)) %>% 
-  mutate(Year = as.factor(Year),StatWk = as.factor(StatWk),Gear = as.factor(Gear),SubDist = as.factor(SubDist),Species = as.factor(Species),HarvType = as.factor(HarvType)) %>% 
+  mutate(Year = as.factor(Year),StatWk = as.factor(StatWk),Gear = as.factor(Gear),Species = as.factor(Species),HarvType = as.factor(HarvType),
+         SubDist = ifelse(Gear == "SGN",24100,SubDist),SubDist = as.factor(SubDist),) %>% 
   filter(!(HomerID == "18CPTpinks")) # Remove samples related to a Pink Salmon stomach contents pilot study
 
 sampled.harvest <- full_join(harvest.df,sample.df,  # joining sample data frame to harvest data frame
@@ -118,11 +119,11 @@ sampled.harvest <- full_join(harvest.df,sample.df,  # joining sample data frame 
 sampled.harvest.CHANGESTATAREA <- sampled.harvest %>% 
   filter(!(HomerID %in% c("18GPG03S","18GPG06S","18GPG11S","18PSD03S","19GSD086P","20GBT063S","21GMX066S","21GMX067P") & is.na(CommercialHarvest))) %>% 
   mutate(HomerID = ifelse(Year == "2019" & StatWk == 31 & Gear == "SGN" & Species == "Pink","19GSD086P",HomerID),
-         HomerID = ifelse(Year == "2018" & StatWk == 24 & Gear == "SGN" & Species == "Sockeye" & StatArea == "24130","18GPG03S",HomerID),
-         HomerID = ifelse(Year == "2018" & StatWk == 25 & Gear == "SGN" & Species == "Sockeye" & StatArea == "24130","18GPG06S",HomerID),
-         HomerID = ifelse(Year == "2018" & StatWk == 26 & Gear == "SGN" & Species == "Sockeye" & StatArea == "24130","18GPG11S",HomerID),
+         HomerID = ifelse(Year == "2018" & StatWk == 24 & Gear == "SGN" & Species == "Sockeye" & StatArea == "24100","18GPG03S",HomerID),
+         HomerID = ifelse(Year == "2018" & StatWk == 25 & Gear == "SGN" & Species == "Sockeye" & StatArea == "24100","18GPG06S",HomerID),
+         HomerID = ifelse(Year == "2018" & StatWk == 26 & Gear == "SGN" & Species == "Sockeye" & StatArea == "24100","18GPG11S",HomerID),
          HomerID = ifelse(Year == "2018" & StatWk == 25 & Gear == "PS" & Species == "Sockeye" & StatArea == "24190","18PSD03S",HomerID),
-         HomerID = ifelse(Year == "2020" & StatWk == 31 & Gear == "SGN" & Species == "Sockeye" & StatArea == "24106","20GBT063S",HomerID)) %>% 
+         HomerID = ifelse(Year == "2020" & StatWk == 31 & Gear == "SGN" & Species == "Sockeye" & StatArea == "24100","20GBT063S",HomerID)) %>% 
   mutate(StatArea = ifelse(HomerID == "18GBT02S" & is.na(CommercialHarvest),"24117",as.character(StatArea)),
          StatArea = ifelse(HomerID == "18PSD06S" & is.na(CommercialHarvest),"24190",StatArea),
          StatArea = ifelse(HomerID == "20PSD041S" & is.na(CommercialHarvest),"24191",StatArea),
@@ -194,12 +195,14 @@ subtract.missing.harvest <- harvest %>%
 harvest.df <- harvest %>% 
   select(-c(ID,DOL.Month,District,Subdistrict,Stat.Area.Name,Landed.Weight..sum.,Business.Name)) %>% 
   filter(Species.Name %in% c("salmon, sockeye","salmon, pink"),Gear.Name %in% c("Purse seine","Set gillnet"),Harvest.Name %in% c("State managed fishery","Private Hatchery - Fishing")) %>% 
+  filter(str_detect(Stat.Area,"^241")) %>% 
   mutate(Gear.Name = if_else(Gear.Name == "Purse seine", "PS", Gear.Name),
          Gear.Name = if_else(Gear.Name == "Set gillnet", "SGN", Gear.Name),
          Species.Name = if_else(Species.Name == "salmon, sockeye", "Sockeye", Species.Name),
          Species.Name = if_else(Species.Name == "salmon, pink", "Pink", Species.Name),
          Harvest.Name = if_else(Harvest.Name == "State managed fishery", "CCP", Harvest.Name),
-         Harvest.Name = if_else(Harvest.Name == "Private Hatchery - Fishing", "HCR", Harvest.Name)) %>% 
+         Harvest.Name = if_else(Harvest.Name == "Private Hatchery - Fishing", "HCR", Harvest.Name),
+         Stat.Area = ifelse(Gear.Name == "SGN",24100,Stat.Area)) %>% 
   group_by(DOL.Year,Stat.Week,Gear.Name,Species.Name,Harvest.Name,Date.of.Landing,Stat.Area)  %>% 
   summarize(CommercialHarvest = sum(Number.Of.Animals..sum.)) %>% 
   full_join(subtract.missing.harvest,
@@ -493,3 +496,4 @@ catch.comparison.TOTAL.SW <- harvest.N_i.SW %>%
   mutate(HatcheryProportion = C.hat_H/Catch)
 
 # save.image(file = "code/LCI_HatcheryTM_analysis-data.RData")
+

@@ -166,86 +166,198 @@ table4 <- sampled.harvest.CLEAN %>%
 # Table 5 -----------------------------------------------------------------
 hatchery_order = c("LCI","PWS","KOD","Other")
 
-table5 <- select(table2, c(Year,Species,Gear,N.samples_CCP)) %>% 
+table5.vals <- select(table2, c(Year,Species,Gear,N.samples_CCP)) %>% 
   right_join(catch.comparison.HATCHAREA) %>% 
   filter(Species == "Sockeye" & Source == "CCP" & Gear == "SGN") %>% 
   select(-c(C.hat_H_VAR,C.hat_H_se)) %>% 
   mutate(N.samples_CCP = number(N.samples_CCP, big.mark = ","),
          lower95CI = ifelse(lower95CI < 0,0,lower95CI),
-         n_est = paste0(number(C.hat_H, big.mark = ",")," (",number(lower95CI, big.mark = ","),"-",number(upper95CI, big.mark = ","),")"),
-         proportion_est = number(HatcheryProportion*100, accuracy = 0.1, suffix = "%")) %>% 
-  select(-c(C.hat_H,lower95CI,upper95CI,HatcheryProportion)) %>% 
+         Hatch_p_low95CI = lower95CI/Catch,
+         Hatch_p_upp95CI = upper95CI/Catch) %>% 
+  rename(Hatch = C.hat_H,
+         Hatch_low95CI = lower95CI,
+         Hatch_upp95CI = upper95CI,
+         Hatch_p = HatcheryProportion) %>% 
   left_join(select(catch.comparison.TOTAL, c(Species,Gear,Year,Source,Catch,C.hat_H,lower95CI,upper95CI))) %>% 
-  mutate(Est_TotalHatchery = paste0(number(C.hat_H, big.mark = ",")," (",number(lower95CI, big.mark = ","),"-",number(upper95CI, big.mark = ","),")"),
-         Est_ProportionHatchery = number(C.hat_H*100/Catch, accuracy = 0.1, suffix = "%"),
-         Est_TotalWild = paste0(number(Catch - C.hat_H, big.mark = ",")," (",number(Catch - upper95CI, big.mark = ","),"-",number(Catch - lower95CI, big.mark = ","),")"),
-         Est_ProportionWild = number((Catch - C.hat_H)*100/Catch, accuracy = 0.1, suffix = "%"),
-         Catch = number(Catch, big.mark = ",")) %>% 
+  mutate(Hatch = round(Hatch,0),
+         Hatch_low95CI = round(Hatch_low95CI,0),
+         Hatch_upp95CI = round(Hatch_upp95CI,0),
+         Hatch_p = round(Hatch_p,3),
+         Hatch_p_low95CI = round(Hatch_p_low95CI,3),
+         Hatch_p_upp95CI = round(Hatch_p_upp95CI,3),
+         Total_hatch = round(C.hat_H,0),
+         Total_hatch_low95CI = round(lower95CI,0),
+         Total_hatch_upp95CI = round(upper95CI,0),
+         Total_hatch_p = round(C.hat_H/Catch,3),
+         Total_hatch_p_low95CI = round(lower95CI/Catch,3),
+         Total_hatch_p_upp95CI = round(upper95CI/Catch,3),
+         Total_wild = round(Catch - C.hat_H,0),
+         Total_wild_low95CI = round(Catch - upper95CI,0),
+         Total_wild_upp95CI = round(Catch - lower95CI,0),
+         Total_wild_p = round((Catch - C.hat_H)/Catch,3),
+         Total_wild_p_low95CI = round((Catch - upper95CI)/Catch,3),
+         Total_wild_p_upp95CI = round((Catch - lower95CI)/Catch,3)) %>% 
   ungroup() %>% 
   select(-c(Species,Gear,Source,C.hat_H,lower95CI,upper95CI)) %>% 
+  arrange(factor(HatcheryArea, levels = hatchery_order)) %>% arrange(Year)
+  
+table5 <- table5.vals %>% 
+  mutate(n_est = paste0(number(Hatch, big.mark = ",")," (",number(Hatch_low95CI, big.mark = ","),"-",number(Hatch_upp95CI, big.mark = ","),")"),
+         proportion_est = paste0(number(Hatch_p*100, accuracy = 0.1, suffix = "%")," (",number(Hatch_p_low95CI*100, accuracy = 0.1, suffix = "%"),"-",number(Hatch_p_upp95CI*100, accuracy = 0.1, suffix = "%"),")"), 
+         Est_TotalHatchery = paste0(number(Total_hatch, big.mark = ",")," (",number(Total_hatch_low95CI, big.mark = ","),"-",number(Total_hatch_upp95CI, big.mark = ","),")"),
+         Est_ProportionHatchery = paste0(number(Total_hatch_p*100, accuracy = 0.1, suffix = "%")," (",number(Total_hatch_p_low95CI*100, accuracy = 0.1, suffix = "%"),"-",number(Total_hatch_p_upp95CI*100, accuracy = 0.1, suffix = "%"),")"),
+         Est_TotalWild = paste0(number(Total_wild, big.mark = ",")," (",number(Total_wild_low95CI, big.mark = ","),"-",number(Total_wild_upp95CI, big.mark = ","),")"),
+         Est_ProportionWild = paste0(number(Total_wild_p*100, accuracy = 0.1, suffix = "%")," (",number(Total_wild_p_low95CI*100, accuracy = 0.1, suffix = "%"),"-",number(Total_wild_p_upp95CI*100, accuracy = 0.1, suffix = "%"),")"),
+         Catch = number(Catch, big.mark = ",")) %>% 
+  ungroup() %>% 
+  select(c(Year,N.samples_CCP,Catch,HatcheryArea,n_est,proportion_est,Est_TotalHatchery,Est_ProportionHatchery,Est_TotalWild,Est_ProportionWild)) %>% 
   arrange(factor(HatcheryArea, levels = hatchery_order)) %>% arrange(Year)
 
 # Table 6 -----------------------------------------------------------------
 
-table6 <- select(table2, c(Year,Species,Gear,N.samples_CCP)) %>% 
+table6.vals <- select(table2, c(Year,Species,Gear,N.samples_CCP)) %>% 
   right_join(catch.comparison.HATCHAREA) %>% 
   filter(Species == "Sockeye" & Source == "CCP" & Gear == "PS") %>% 
   select(-c(C.hat_H_VAR,C.hat_H_se)) %>% 
   mutate(N.samples_CCP = number(N.samples_CCP, big.mark = ","),
          lower95CI = ifelse(lower95CI < 0,0,lower95CI),
-         n_est = paste0(number(C.hat_H, big.mark = ",")," (",number(lower95CI, big.mark = ","),"-",number(upper95CI, big.mark = ","),")"),
-         proportion_est = number(HatcheryProportion*100, accuracy = 0.1, suffix = "%")) %>% 
-  select(-c(C.hat_H,lower95CI,upper95CI,HatcheryProportion)) %>% 
+         Hatch_p_low95CI = lower95CI/Catch,
+         Hatch_p_upp95CI = upper95CI/Catch) %>% 
+  rename(Hatch = C.hat_H,
+         Hatch_low95CI = lower95CI,
+         Hatch_upp95CI = upper95CI,
+         Hatch_p = HatcheryProportion) %>% 
   left_join(select(catch.comparison.TOTAL, c(Species,Gear,Year,Source,Catch,C.hat_H,lower95CI,upper95CI))) %>% 
-  mutate(Est_TotalHatchery = paste0(number(C.hat_H, big.mark = ",")," (",number(lower95CI, big.mark = ","),"-",number(upper95CI, big.mark = ","),")"),
-         Est_ProportionHatchery = number(C.hat_H*100/Catch, accuracy = 0.1, suffix = "%"),
-         Est_TotalWild = paste0(number(Catch - C.hat_H, big.mark = ",")," (",number(Catch - upper95CI, big.mark = ","),"-",number(Catch - lower95CI, big.mark = ","),")"),
-         Est_ProportionWild = number((Catch - C.hat_H)*100/Catch, accuracy = 0.1, suffix = "%"),
-         Catch = number(Catch, big.mark = ",")) %>% 
+  mutate(Hatch = round(Hatch,0),
+         Hatch_low95CI = round(Hatch_low95CI,0),
+         Hatch_upp95CI = round(Hatch_upp95CI,0),
+         Hatch_p = round(Hatch_p,3),
+         Hatch_p_low95CI = round(Hatch_p_low95CI,3),
+         Hatch_p_upp95CI = round(Hatch_p_upp95CI,3),
+         Total_hatch = round(C.hat_H,0),
+         Total_hatch_low95CI = round(lower95CI,0),
+         Total_hatch_upp95CI = round(upper95CI,0),
+         Total_hatch_p = round(C.hat_H/Catch,3),
+         Total_hatch_p_low95CI = round(lower95CI/Catch,3),
+         Total_hatch_p_upp95CI = round(upper95CI/Catch,3),
+         Total_wild = round(Catch - C.hat_H,0),
+         Total_wild_low95CI = round(Catch - upper95CI,0),
+         Total_wild_upp95CI = round(Catch - lower95CI,0),
+         Total_wild_p = round((Catch - C.hat_H)/Catch,3),
+         Total_wild_p_low95CI = round((Catch - upper95CI)/Catch,3),
+         Total_wild_p_upp95CI = round((Catch - lower95CI)/Catch,3)) %>% 
   ungroup() %>% 
   select(-c(Species,Gear,Source,C.hat_H,lower95CI,upper95CI)) %>% 
   arrange(factor(HatcheryArea, levels = hatchery_order)) %>% arrange(Year)
 
+table6 <- table6.vals %>% 
+  mutate(n_est = paste0(number(Hatch, big.mark = ",")," (",number(Hatch_low95CI, big.mark = ","),"-",number(Hatch_upp95CI, big.mark = ","),")"),
+         proportion_est = paste0(number(Hatch_p*100, accuracy = 0.1, suffix = "%")," (",number(Hatch_p_low95CI*100, accuracy = 0.1, suffix = "%"),"-",number(Hatch_p_upp95CI*100, accuracy = 0.1, suffix = "%"),")"), 
+         Est_TotalHatchery = paste0(number(Total_hatch, big.mark = ",")," (",number(Total_hatch_low95CI, big.mark = ","),"-",number(Total_hatch_upp95CI, big.mark = ","),")"),
+         Est_ProportionHatchery = paste0(number(Total_hatch_p*100, accuracy = 0.1, suffix = "%")," (",number(Total_hatch_p_low95CI*100, accuracy = 0.1, suffix = "%"),"-",number(Total_hatch_p_upp95CI*100, accuracy = 0.1, suffix = "%"),")"),
+         Est_TotalWild = paste0(number(Total_wild, big.mark = ",")," (",number(Total_wild_low95CI, big.mark = ","),"-",number(Total_wild_upp95CI, big.mark = ","),")"),
+         Est_ProportionWild = paste0(number(Total_wild_p*100, accuracy = 0.1, suffix = "%")," (",number(Total_wild_p_low95CI*100, accuracy = 0.1, suffix = "%"),"-",number(Total_wild_p_upp95CI*100, accuracy = 0.1, suffix = "%"),")"),
+         Catch = number(Catch, big.mark = ",")) %>% 
+  ungroup() %>% 
+  select(c(Year,N.samples_CCP,Catch,HatcheryArea,n_est,proportion_est,Est_TotalHatchery,Est_ProportionHatchery,Est_TotalWild,Est_ProportionWild)) %>% 
+  arrange(factor(HatcheryArea, levels = hatchery_order)) %>% arrange(Year)
+
 # Table 7 -----------------------------------------------------------------
 
-table7 <- select(table2, c(Year,Species,Gear,N.samples_CCP)) %>% 
+table7.vals <- select(table2, c(Year,Species,Gear,N.samples_CCP)) %>% 
   right_join(catch.comparison.HATCHAREA) %>% 
   filter(Species == "Pink" & Source == "CCP" & Gear == "SGN") %>% 
   select(-c(C.hat_H_VAR,C.hat_H_se)) %>% 
   mutate(N.samples_CCP = number(N.samples_CCP, big.mark = ","),
          lower95CI = ifelse(lower95CI < 0,0,lower95CI),
-         n_est = paste0(number(C.hat_H, big.mark = ",")," (",number(lower95CI, big.mark = ","),"-",number(upper95CI, big.mark = ","),")"),
-         proportion_est = number(HatcheryProportion*100, accuracy = 0.1, suffix = "%")) %>% 
-  select(-c(C.hat_H,lower95CI,upper95CI,HatcheryProportion)) %>% 
+         Hatch_p_low95CI = lower95CI/Catch,
+         Hatch_p_upp95CI = upper95CI/Catch) %>% 
+  rename(Hatch = C.hat_H,
+         Hatch_low95CI = lower95CI,
+         Hatch_upp95CI = upper95CI,
+         Hatch_p = HatcheryProportion) %>% 
   left_join(select(catch.comparison.TOTAL, c(Species,Gear,Year,Source,Catch,C.hat_H,lower95CI,upper95CI))) %>% 
-  mutate(Est_TotalHatchery = paste0(number(C.hat_H, big.mark = ",")," (",number(lower95CI, big.mark = ","),"-",number(upper95CI, big.mark = ","),")"),
-         Est_ProportionHatchery = number(C.hat_H*100/Catch, accuracy = 0.1, suffix = "%"),
-         Est_TotalWild = paste0(number(Catch - C.hat_H, big.mark = ",")," (",number(Catch - upper95CI, big.mark = ","),"-",number(Catch - lower95CI, big.mark = ","),")"),
-         Est_ProportionWild = number((Catch - C.hat_H)*100/Catch, accuracy = 0.1, suffix = "%"),
-         Catch = number(Catch, big.mark = ",")) %>% 
+  mutate(Hatch = round(Hatch,0),
+         Hatch_low95CI = round(Hatch_low95CI,0),
+         Hatch_upp95CI = round(Hatch_upp95CI,0),
+         Hatch_p = round(Hatch_p,3),
+         Hatch_p_low95CI = round(Hatch_p_low95CI,3),
+         Hatch_p_upp95CI = round(Hatch_p_upp95CI,3),
+         Total_hatch = round(C.hat_H,0),
+         Total_hatch_low95CI = round(lower95CI,0),
+         Total_hatch_upp95CI = round(upper95CI,0),
+         Total_hatch_p = round(C.hat_H/Catch,3),
+         Total_hatch_p_low95CI = round(lower95CI/Catch,3),
+         Total_hatch_p_upp95CI = round(upper95CI/Catch,3),
+         Total_wild = round(Catch - C.hat_H,0),
+         Total_wild_low95CI = round(Catch - upper95CI,0),
+         Total_wild_upp95CI = round(Catch - lower95CI,0),
+         Total_wild_p = round((Catch - C.hat_H)/Catch,3),
+         Total_wild_p_low95CI = round((Catch - upper95CI)/Catch,3),
+         Total_wild_p_upp95CI = round((Catch - lower95CI)/Catch,3)) %>% 
   ungroup() %>% 
   select(-c(Species,Gear,Source,C.hat_H,lower95CI,upper95CI)) %>% 
   arrange(factor(HatcheryArea, levels = hatchery_order)) %>% arrange(Year)
 
+table7 <- table7.vals %>% 
+  mutate(n_est = paste0(number(Hatch, big.mark = ",")," (",number(Hatch_low95CI, big.mark = ","),"-",number(Hatch_upp95CI, big.mark = ","),")"),
+         proportion_est = paste0(number(Hatch_p*100, accuracy = 0.1, suffix = "%")," (",number(Hatch_p_low95CI*100, accuracy = 0.1, suffix = "%"),"-",number(Hatch_p_upp95CI*100, accuracy = 0.1, suffix = "%"),")"), 
+         Est_TotalHatchery = paste0(number(Total_hatch, big.mark = ",")," (",number(Total_hatch_low95CI, big.mark = ","),"-",number(Total_hatch_upp95CI, big.mark = ","),")"),
+         Est_ProportionHatchery = paste0(number(Total_hatch_p*100, accuracy = 0.1, suffix = "%")," (",number(Total_hatch_p_low95CI*100, accuracy = 0.1, suffix = "%"),"-",number(Total_hatch_p_upp95CI*100, accuracy = 0.1, suffix = "%"),")"),
+         Est_TotalWild = paste0(number(Total_wild, big.mark = ",")," (",number(Total_wild_low95CI, big.mark = ","),"-",number(Total_wild_upp95CI, big.mark = ","),")"),
+         Est_ProportionWild = paste0(number(Total_wild_p*100, accuracy = 0.1, suffix = "%")," (",number(Total_wild_p_low95CI*100, accuracy = 0.1, suffix = "%"),"-",number(Total_wild_p_upp95CI*100, accuracy = 0.1, suffix = "%"),")"),
+         Catch = number(Catch, big.mark = ",")) %>% 
+  ungroup() %>% 
+  select(c(Year,N.samples_CCP,Catch,HatcheryArea,n_est,proportion_est,Est_TotalHatchery,Est_ProportionHatchery,Est_TotalWild,Est_ProportionWild)) %>% 
+  arrange(factor(HatcheryArea, levels = hatchery_order)) %>% arrange(Year)
+
 # Table 8 -----------------------------------------------------------------
 
-table8 <- select(table2, c(Year,Species,Gear,N.samples_CCP)) %>% 
+table8.vals <- select(table2, c(Year,Species,Gear,N.samples_CCP)) %>% 
   right_join(catch.comparison.HATCHAREA) %>% 
   filter(Species == "Pink" & Source == "CCP" & Gear == "PS") %>% 
   select(-c(C.hat_H_VAR,C.hat_H_se)) %>% 
   mutate(N.samples_CCP = number(N.samples_CCP, big.mark = ","),
          lower95CI = ifelse(lower95CI < 0,0,lower95CI),
-         n_est = paste0(number(C.hat_H, big.mark = ",")," (",number(lower95CI, big.mark = ","),"-",number(upper95CI, big.mark = ","),")"),
-         proportion_est = number(HatcheryProportion*100, accuracy = 0.1, suffix = "%")) %>% 
-  select(-c(C.hat_H,lower95CI,upper95CI,HatcheryProportion)) %>% 
+         Hatch_p_low95CI = lower95CI/Catch,
+         Hatch_p_upp95CI = upper95CI/Catch) %>% 
+  rename(Hatch = C.hat_H,
+         Hatch_low95CI = lower95CI,
+         Hatch_upp95CI = upper95CI,
+         Hatch_p = HatcheryProportion) %>% 
   left_join(select(catch.comparison.TOTAL, c(Species,Gear,Year,Source,Catch,C.hat_H,lower95CI,upper95CI))) %>% 
-  mutate(Est_TotalHatchery = paste0(number(C.hat_H, big.mark = ",")," (",number(lower95CI, big.mark = ","),"-",number(upper95CI, big.mark = ","),")"),
-         Est_ProportionHatchery = number(C.hat_H*100/Catch, accuracy = 0.1, suffix = "%"),
-         Est_TotalWild = paste0(number(Catch - C.hat_H, big.mark = ",")," (",number(Catch - upper95CI, big.mark = ","),"-",number(Catch - lower95CI, big.mark = ","),")"),
-         Est_ProportionWild = number((Catch - C.hat_H)*100/Catch, accuracy = 0.1, suffix = "%"),
-         Catch = number(Catch, big.mark = ",")) %>% 
+  mutate(Hatch = round(Hatch,0),
+         Hatch_low95CI = round(Hatch_low95CI,0),
+         Hatch_upp95CI = round(Hatch_upp95CI,0),
+         Hatch_p = round(Hatch_p,3),
+         Hatch_p_low95CI = round(Hatch_p_low95CI,3),
+         Hatch_p_upp95CI = round(Hatch_p_upp95CI,3),
+         Total_hatch = round(C.hat_H,0),
+         Total_hatch_low95CI = round(lower95CI,0),
+         Total_hatch_upp95CI = round(upper95CI,0),
+         Total_hatch_p = round(C.hat_H/Catch,3),
+         Total_hatch_p_low95CI = round(lower95CI/Catch,3),
+         Total_hatch_p_upp95CI = round(upper95CI/Catch,3),
+         Total_wild = round(Catch - C.hat_H,0),
+         Total_wild_low95CI = round(Catch - upper95CI,0),
+         Total_wild_upp95CI = round(Catch - lower95CI,0),
+         Total_wild_p = round((Catch - C.hat_H)/Catch,3),
+         Total_wild_p_low95CI = round((Catch - upper95CI)/Catch,3),
+         Total_wild_p_upp95CI = round((Catch - lower95CI)/Catch,3)) %>% 
   ungroup() %>% 
   select(-c(Species,Gear,Source,C.hat_H,lower95CI,upper95CI)) %>% 
+  arrange(factor(HatcheryArea, levels = hatchery_order)) %>% arrange(Year)
+
+table8 <- table8.vals %>% 
+  mutate(n_est = paste0(number(Hatch, big.mark = ",")," (",number(Hatch_low95CI, big.mark = ","),"-",number(Hatch_upp95CI, big.mark = ","),")"),
+         proportion_est = paste0(number(Hatch_p*100, accuracy = 0.1, suffix = "%")," (",number(Hatch_p_low95CI*100, accuracy = 0.1, suffix = "%"),"-",number(Hatch_p_upp95CI*100, accuracy = 0.1, suffix = "%"),")"), 
+         Est_TotalHatchery = paste0(number(Total_hatch, big.mark = ",")," (",number(Total_hatch_low95CI, big.mark = ","),"-",number(Total_hatch_upp95CI, big.mark = ","),")"),
+         Est_ProportionHatchery = paste0(number(Total_hatch_p*100, accuracy = 0.1, suffix = "%")," (",number(Total_hatch_p_low95CI*100, accuracy = 0.1, suffix = "%"),"-",number(Total_hatch_p_upp95CI*100, accuracy = 0.1, suffix = "%"),")"),
+         Est_TotalWild = paste0(number(Total_wild, big.mark = ",")," (",number(Total_wild_low95CI, big.mark = ","),"-",number(Total_wild_upp95CI, big.mark = ","),")"),
+         Est_ProportionWild = paste0(number(Total_wild_p*100, accuracy = 0.1, suffix = "%")," (",number(Total_wild_p_low95CI*100, accuracy = 0.1, suffix = "%"),"-",number(Total_wild_p_upp95CI*100, accuracy = 0.1, suffix = "%"),")"),
+         Catch = number(Catch, big.mark = ",")) %>% 
+  ungroup() %>% 
+  select(c(Year,N.samples_CCP,Catch,HatcheryArea,n_est,proportion_est,Est_TotalHatchery,Est_ProportionHatchery,Est_TotalWild,Est_ProportionWild)) %>% 
   arrange(factor(HatcheryArea, levels = hatchery_order)) %>% arrange(Year)
 
 
@@ -599,9 +711,13 @@ sheets <- list(
   "table3" = table3,
   "table4" = table4,
   "table5" = table5,
+  "table5.vals" = table5.vals,
   "table6" = table6,
+  "table6.vals" = table6.vals,
   "table7" = table7,
+  "table7.vals" = table7.vals,
   "table8" = table8,
+  "table8.vals" = table8.vals,
   "appendixB" = appendixB,
   "appendixC" = appendixC,
   "appendixD1" = appendixD1,
@@ -623,3 +739,4 @@ sheets <- list(
 )
 
 # write.xlsx(sheets, "output/tables/report_tables_RAW.xlsx")
+
